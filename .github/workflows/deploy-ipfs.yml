@@ -2,7 +2,7 @@ name: Deploy to IPFS
 
 on:
   push:
-    branches: [master]
+    branches: [Master]
 
 jobs:
   deploy:
@@ -14,8 +14,8 @@ jobs:
 
     - name: Install IPFS CLI
       run: |
-        wget https://dist.ipfs.tech/go-ipfs/v0.18.1/go-ipfs_v0.18.1_linux-amd64.tar.gz
-        tar -xvzf go-ipfs_v0.18.1_linux-amd64.tar.gz
+        wget https://dist.ipfs.tech/go-ipfs/v0.18.1/go-ipfs_v0.18.1_linux-arm64.tar.gz
+        tar -xvzf go-ipfs_v0.18.1_linux-armh64.tar.gz
         cd go-ipfs
         sudo bash install.sh
 
