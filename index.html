@@ -9,29 +9,28 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #f8f6f2; /* warm ivory */
-      color: #2e2e2e; /* soft charcoal */
+      background      color: #2e2e2e;
       line-height: 1.7;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
 
     nav {
-      margin-bottom: 2rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
 
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #3a4a5a; /* dusty blue */
+      color: #3a4a5a;
       font-weight: bold;
+      letter-spacing: 0.03em;
     }
 
     nav a:hover {
-      color: #a67c52; /* muted clay */
+      color: #a67c52;
     }
 
     header {
@@ -40,7 +39,7 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
       color: #3a4a5a;
     }
@@ -48,12 +47,28 @@
     .tagline {
       font-style: italic;
       color: #a67c52;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     section {
-      max-width: 700px;
       text-align: left;
+      margin-top: 2rem;
+    }
+
+    section p {
+      margin-bottom: 1.5rem;
+    }
+
+    a.read-more {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #3a4a5a;
+      text-decoration: underline;
+    }
+
+    a.read-more:hover {
+      color: #a67c52;
     }
 
     footer {
@@ -79,21 +94,16 @@
   </header>
 
   <section>
-    <p>
-      For words that do not beg to be heard, but deserve to be remembered.<br>
-      For truths that do not accuse, but refuse to be erased.
-    </p>
+    <p>For words that do not beg to be heard, but deserve to be remembered.<br>
+    For truths that do not accuse, but refuse to be erased.</p>
 
-    <p>
-      Quiet Reference is a sanctuary—for healing, for legacy, for clarity.<br>
-      Built with intention. Held with dignity.<br>
-      Written not to expose, but to endure.
-    </p>
-    <p>
-  I’ve read your words more than once. Not to argue, but to understand.<br>
-  I won’t deny your pain. I won’t rewrite your memories.<br>
-  <a href="poems/not-to-win-but-to-witness.html">Read more →</a>
-    </p>
+    <p>Quiet Reference is a sanctuary—for healing, for legacy, for clarity.<br>
+    Built with intention. Held with dignity.<br>
+    Written not to expose, but to endure.</p>
+
+    <p>I’ve read your words more than once. Not to argue, but to understand.<br>
+    I won’t deny your pain. I won’t rewrite your memories.<br>
+    <a class="read-more" href="poems/not-to-win-but-to-witness.html">Read more →</a></p>
   </section>
 
   <footer>
