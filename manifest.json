@@ -1,0 +1,8 @@
+{
+  "name": "Quiet Reference",
+  "short_name": "QR",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f8f5f0",
+  "theme_color": "#6a7b8c"
+}
