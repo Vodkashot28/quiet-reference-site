@@ -4,111 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiet Reference</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background-color: #f8f6f2;
       font-family: 'Georgia', serif;
-      background      color: #2e2e2e;
-      line-height: 1.7;
+      color: #2e2e2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .hero {
+      max-width: 800px;
       padding: 2rem;
-      max-width: 900px;
-      margin: auto;
     }
 
-    nav {
-      text-align: center;
+    img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
+      transition: opacity 1.5s ease;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
 
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #3a4a5a;
-      font-weight: bold;
-      letter-spacing: 0.03em;
-    }
-
-    nav a:hover {
-      color: #a67c52;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
       color: #3a4a5a;
-    }
-
-    .tagline {
-      font-style: italic;
-      color: #a67c52;
-      font-size: 1.2rem;
       margin-bottom: 1rem;
     }
 
-    section {
-      text-align: left;
-      margin-top: 2rem;
-    }
-
-    section p {
-      margin-bottom: 1.5rem;
-    }
-
-    a.read-more {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #3a4a5a;
-      text-decoration: underline;
-    }
-
-    a.read-more:hover {
-      color: #a67c52;
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 600px;
+      margin: auto;
     }
 
     footer {
-      margin-top: 4rem;
+      margin-top: 3rem;
       font-size: 0.9rem;
-      color: #777;
-      text-align: center;
+      color: #888;
+    }
+
+    a {
+      color: #3a4a5a;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #a67c52;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="letters-unsent.html">Letters Unsent</a>
-    <a href="fragments.html">Fragments</a>
-    <a href="about.html">About</a>
-    <a href="foundation.html">Foundations</a>
-  </nav>
-
-  <header>
-    <h1>Quiet Reference</h1>
-    <p class="tagline">This space is not for spectacle. It is for anchoring.</p>
-  </header>
-
-  <section>
-    <p>For words that do not beg to be heard, but deserve to be remembered.<br>
-    For truths that do not accuse, but refuse to be erased.</p>
-
-    <p>Quiet Reference is a sanctuary—for healing, for legacy, for clarity.<br>
-    Built with intention. Held with dignity.<br>
-    Written not to expose, but to endure.</p>
-
-    <p>I’ve read your words more than once. Not to argue, but to understand.<br>
-    I won’t deny your pain. I won’t rewrite your memories.<br>
-    <a class="read-more" href="poems/not-to-win-but-to-witness.html">Read more →</a></p>
-  </section>
-
-  <footer>
-  &copy; 2025 Quiet Reference. All rights reserved.<br>
-  <small>Latest anchor: <a href="https://ipfs.io/ipfs/QmP5gYDM2dsmCQESoWEAXy76tQcaRTx8GoJbMfBBnmoQtj" target="_blank">QmP5gYDM2dsmCQESoWEAXy76tQcaRTx8GoJbMfBBnmoQtj</a></small>
-</footer>
+  <div class="hero">
+    <img src="image.png" alt="Quiet Reference Cover" />
+    <h1>This space is not for spectacle</h1>
+    <p>It is for anchoring. Each update is a timestamped moment of truth—inscribed with clarity, not noise.</p>
+    <footer>
+      Latest anchor: <a href="https://ipfs.io/ipfs/QmP5gYDM2dsmCQESoWEAXy76tQcaRTx8GoJbMfBBnmoQtj" target="_blank">QmP5gYDM2dsmCQESoWEAXy76tQcaRTx8GoJbMfBBnmoQtj</a>
+    </footer>
+  </div>
 </body>
 </html>
