@@ -1,0 +1,8 @@
+# Deployment artifacts
+cid.txt
+ipfs_output.txt
+manifest.log
+
+# IPFS binaries
+go-ipfs/
+
