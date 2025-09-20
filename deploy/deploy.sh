@@ -15,7 +15,7 @@ git commit -m "Auto commit on $timestamp"
 git push origin Master
 
 # Step 2: Add site folder to IPFS and capture output
-ipfs add -qr ./site > ./deploy/ipfs_output.txt
+ipfs add -qr  ./≈quiet-reference-site > ipfs_output.txt
 cid=$(tail -n 1 ./deploy/ipfs_output.txt)
 echo "$cid" > ./deploy/cid.txt
 
