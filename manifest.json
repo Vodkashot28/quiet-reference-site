@@ -1,5 +1,6 @@
 {
   "name": "Quiet Reference",
+  "domain": "quietreference.xyz", 
   "short_name": "QR",
   "start_url": "index.html",
   "display": "standalone",
