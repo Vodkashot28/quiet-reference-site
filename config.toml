@@ -1,5 +1,29 @@
-baseURL = "https://quietreference.xyz/"
+baseURL = "https://vodkashot28.github.io/quiet-reference-site/"
 languageCode = "en-us"
-title = "Quiet Reference"
+title = "Quiet Reference Site"
 theme = "quiet-gateway"
+enableRobotsTXT = true
 
+[params]
+  description = "A quiet place for thoughtful references and poetry"
+  author = "AyawKoL"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Poems"
+    url = "/poems/"
+    weight = 2
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
