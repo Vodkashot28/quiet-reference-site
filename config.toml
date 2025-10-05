@@ -1,0 +1,5 @@
+baseURL = "https://quietreference.xyz/"
+languageCode = "en-us"
+title = "Quiet Reference"
+theme = "quiet-gateway"
+
