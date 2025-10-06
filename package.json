@@ -10,7 +10,7 @@
     "build": "npm-run-all -p prebuild:* && npm-run-all -p build:*",
     "build:css": "stylus -u autoprefixer-stylus -I node_modules/yeticss/lib -c -o static/css _styl/main.styl",
     "build:hugo": "hugo",
-    "prebuild:js": "browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js",
+    "prebuild:js": "mkdir -p static/js && browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js",
     "deploy": "hugo && ipfs add -r public",
     "deploy:surge": "hugo && surge --project public --domain ipfs.surge.sh",
     "minify": "npm-run-all minify:*",
