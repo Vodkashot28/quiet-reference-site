@@ -1,32 +1,31 @@
 {
   "name": "quietreference-site",
   "version": "1.0.0",
-  "description": "Static site built with Hugo, deployed via IPFS, and styled with LESS.",
+  "description": "Static site built with Jekyll, deployed via IPFS, and styled with LESS.",
   "license": "MIT",
-  "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all -p prebuild:* && npm-run-all -p build:*",
     "build:css": "stylus -u autoprefixer-stylus -I node_modules/yeticss/lib -c -o static/css _styl/main.styl",
-    "build:hugo": "hugo",
-    "prebuild:js": "mkdir -p static/js && browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js",
-    "deploy": "hugo && ipfs add -r public",
-    "deploy:surge": "hugo && surge --project public --domain ipfs.surge.sh",
+    "build:js": "browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js",
+    "prebuild:js": "mkdir -p static/js",
+    "build:jekyll": "jekyll build",
+    "deploy": "jekyll build && ipfs add -r _site",
+    "deploy:surge": "jekyll build && surge --project _site --domain ipfs.surge.sh",
     "minify": "npm-run-all minify:*",
-    "minify:img": "find public/images -type d -exec imagemin {}/* --out-dir={} \\; && find public/blog/static -type d -exec imagemin {}/* --out-dir={} \\;",
-    "minify:js": "find public/js -name '*.js' -exec uglifyjs {} --compress --output {} \\;",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify:img": "find _site/images -type d -exec imagemin {}/* --out-dir={} \\;",
+    "minify:js": "find _site/js -name '*.js' -exec uglifyjs {} --compress --output {} \\;",
     "watch": "npm-run-all -p watch:*",
     "watch:css": "stylus -u autoprefixer-stylus -I node_modules/yeticss/lib -w _styl/main.styl -c -o static/css",
     "watch:js": "nodemon --watch js --exec \"browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js\"",
-    "watch:server": "hugo server -ws ."
+    "watch:jekyll": "jekyll serve --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "browserify": "^14.4.0",
     "dnslink-deploy": "^1.0.7",
     "factor-bundle": "^2.5.0",
-    "hugo-bin": "0.45.2",
     "imagemin-cli": "^3.0.0",
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-optipng": "^5.2.1",
@@ -50,3 +49,4 @@
     ]
   }
 }
+

@@ -4,7 +4,7 @@
   "icons": [
     {
 <<<<<<< HEAD
-      "src": "assets/favicon/android-chrome-192x192.png",
+      "src": "static/assets/favicon/android-chrome-192x192.png",
 =======
       "src": "android-chrome-192x192.png",
 >>>>>>> 9b59e4dabf7b8caae42d72ecbec1756ff97a77b7
@@ -13,7 +13,7 @@
     },
     {
 <<<<<<< HEAD
-      "src": "assets/favicon/android-chrome-512x512.png",
+      "src": "static/assets/favicon/android-chrome-512x512.png",
 =======
       "src": "android-chrome-512x512.png",
 >>>>>>> 9b59e4dabf7b8caae42d72ecbec1756ff97a77b7

@@ -6,3 +6,6 @@ manifest.log
 # IPFS binaries
 go-ipfs/
 
+
+# Local Netlify folder
+.netlify

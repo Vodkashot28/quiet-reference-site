@@ -1,4 +1,4 @@
-name: Build Site
+	name: Build Site
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    name: Hugo Build
+    name: Jekyll  Build
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
