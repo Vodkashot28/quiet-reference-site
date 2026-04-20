@@ -1,45 +1,37 @@
 #!/usr/bin/env bash
 
 # Usage:
-#   DNSIMPLE_TOKEN=<token> ./dnslink.sh <domain> <hash>
+#   DNSIMPLE_TOKEN=<token> DNSIMPLE_ACCOUNT_ID=<account_id> ./dnslink.sh <zone> <cid>
 
-set -e
+set -euo pipefail
 
 ZONE="$1"
-HASH="$2"
+CID="$2"
 
-if [[ -z "$DNSIMPLE_TOKEN" || -z "$ZONE" || -z "$HASH" ]]; then
-  echo "Usage: DNSIMPLE_TOKEN=<token> ./dnslink.sh <domain> <hash>"
+if [[ -z "${DNSIMPLE_TOKEN:-}" || -z "${DNSIMPLE_ACCOUNT_ID:-}" || -z "$ZONE" || -z "$CID" ]]; then
+  echo "Usage: DNSIMPLE_TOKEN=<token> DNSIMPLE_ACCOUNT_ID=<id> ./dnslink.sh <zone> <cid>"
   exit 1
 fi
 
+BASE="https://api.dnsimple.com/v2/$DNSIMPLE_ACCOUNT_ID/zones/$ZONE/records"
+AUTH=(-H "Authorization: Bearer $DNSIMPLE_TOKEN" -H "Accept: application/json")
 RECORD_NAME="_dnslink"
-RECORD_TTL=120
+TTL=120
+CONTENT="dnslink=/ipfs/$CID"
 
-# Look up existing record ID
 record_id=$(
-  curl -s "https://api.dnsimple.com/v1/domains/$ZONE/records?name=$RECORD_NAME&type=TXT" \
-    -H "X-DNSimple-Domain-Token: $DNSIMPLE_TOKEN" \
-    -H "Accept: application/json" \
-    | jq -r '.[0].id'
+  curl -s "${AUTH[@]}" "$BASE?name=$RECORD_NAME&type=TXT" \
+    | jq -r '.data[0].id // empty'
 )
 
-if [[ -z "$record_id" || "$record_id" == "null" ]]; then
-  # Create new record
-  curl -s -X POST "https://api.dnsimple.com/v1/domains/$ZONE/records" \
-    -H "X-DNSimple-Domain-Token: $DNSIMPLE_TOKEN" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d "{\"record\":{ \"name\":\"$RECORD_NAME\", \"record_type\":\"TXT\", \"content\":\"dnslink=/ipfs/$HASH\", \"ttl\":$RECORD_TTL }}" \
-    | jq -r '.id'
-  printf "\nIt looks like we're good: https://ipfs.io/ipns/$ZONE\n"
+if [[ -z "$record_id" ]]; then
+  curl -s -X POST "${AUTH[@]}" -H "Content-Type: application/json" \
+    -d "{\"name\":\"$RECORD_NAME\",\"type\":\"TXT\",\"content\":\"$CONTENT\",\"ttl\":$TTL}" \
+    "$BASE" | jq -r '.data.id'
 else
-  # Update existing record
-  curl -s -X PUT "https://api.dnsimple.com/v1/domains/$ZONE/records/$record_id" \
-    -H "X-DNSimple-Domain-Token: $DNSIMPLE_TOKEN" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d "{\"record\":{ \"content\":\"dnslink=/ipfs/$HASH\", \"name\":\"$RECORD_NAME\", \"ttl\":$RECORD_TTL }}" \
-    | jq -r '.id'
-  printf "\nIt looks like we're good: https://ipfs.io/ipns/$ZONE\n"
+  curl -s -X PATCH "${AUTH[@]}" -H "Content-Type: application/json" \
+    -d "{\"content\":\"$CONTENT\",\"ttl\":$TTL}" \
+    "$BASE/$record_id" | jq -r '.data.id'
 fi
+
+echo "Done: https://ipfs.io/ipns/$ZONE"
