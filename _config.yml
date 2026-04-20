@@ -1,0 +1,14 @@
+title: Quiet Reference
+description: Sanctuary for truth, restraint, and emotional clarity
+url: "https://quietreference.xyz"
+baseurl: ""
+markdown: kramdown
+exclude:
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - Makefile
+  - deploy
+  - go-ipfs
+  - actions-runner
