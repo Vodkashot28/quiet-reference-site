@@ -1,0 +1,20 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }}</title>
+    <description>{{ site.description }}</description>
+    <link>{{ site.url }}</link>
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    {% for file in site.static_files %}{% if file.path contains '/poems/' and file.extname == '.html' %}
+    <item>
+      <title>{{ file.basename | replace: '-', ' ' | split: ' ' | join: ' ' }}</title>
+      <link>{{ site.url }}{{ file.path }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ file.path }}</guid>
+    </item>
+    {% endif %}{% endfor %}
+  </channel>
+</rss>

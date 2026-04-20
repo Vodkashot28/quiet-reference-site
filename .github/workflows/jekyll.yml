@@ -21,6 +21,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Inject provenance
+        run: |
+          GIT_HASH=$(git rev-parse --short HEAD)
+          sed -i "s/^git_hash:.*/git_hash: \"$GIT_HASH\"/" _config.yml
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

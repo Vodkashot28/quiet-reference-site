@@ -1,86 +1,39 @@
+---
+title: I'm Not the Villain You Needed Me to Be – Quiet Reference
+description: An honest look at my side of the story.
+og_type: article
+root: ../
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I’m Not the Villain You Needed Me to Be – Quiet Reference</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      background-color: #f8f6f2;
-      color: #2e2e2e;
-      line-height: 1.7;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    nav {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-    }
-
-    nav a {
-      margin: 0 1.2rem;
-      text-decoration: none;
-      color: #3a4a5a;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #a67c52;
-    }
-
-    h1 {
-      text-align: center;
-      color: #3a4a5a;
-      margin-bottom: 1rem;
-    }
-
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #a67c52;
-      margin-bottom: 2rem;
-    }
-
-    p {
-      white-space: pre-line;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 4rem;
-    }
-  </style>
+  {% include head.html %}
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../poems.html">Poems</a>
-    <a href="../letters-unsent.html">Letters Unsent</a>
-    <a href="../fragments.html">Fragments</a>
-    <a href="../about.html">About</a>
-    <a href="../foundation.html">Foundations</a>
-    <a href="../recovered.html">Recovered</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">☾</button>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">I'm Not the Villain You Needed Me to Be</li>
+    </ol>
   </nav>
 
-  <h1>I’m Not the Villain You Needed Me to Be</h1>
-  <p class="tagline">An honest look at my side of the story.</p>
+  <main>
+    <article>
+      <header>
+        <h1>I'm Not the Villain You Needed Me to Be</h1>
+        <p class="tagline">An honest look at my side of the story.</p>
+      </header>
 
-  <section>
-    <p>
+      <section aria-label="Poem text">
+        <p>
 You told them my flaws.
 My weakness.
 As if revealing them
 was justice.
-But it wasn’t betrayal—
+But it wasn't betrayal—
 it was exposure.
 
 What defines me
@@ -90,10 +43,10 @@ because they were mine to protect,
 not to parade.
 
 I made mistakes.
-Who hasn’t?
+Who hasn't?
 I lost my temper.
 I said things I regret.
-And I’m sorry.
+And I'm sorry.
 
 But disrespecting me
 to win an argument
@@ -105,12 +58,12 @@ And I reacted.
 I hit you.
 You hit back.
 And no—
-it wasn’t right.
-But it wasn’t one-sided either.
+it wasn't right.
+But it wasn't one-sided either.
 
 If fairness had spoken,
-I should’ve walked away.
-Not because I didn’t care—
+I should've walked away.
+Not because I didn't care—
 but because staying
 meant losing myself.
 
@@ -119,11 +72,11 @@ with others.
 But you never shared
 the full truth.
 
-I’m not the villain
+I'm not the villain
 you needed me to be
 to feel innocent.
 
-I’m the man
+I'm the man
 who stayed,
 who tried,
 who broke,
@@ -131,22 +84,33 @@ who rebuilt quietly
 without applause.
 
 So tell your story.
-But I’ll tell mine too.
+But I'll tell mine too.
 And mine
-won’t be shaped
+won't be shaped
 to make you feel better.
 
-Because I’m not here
+Because I'm not here
 to be forgiven.
-I’m here
+I'm here
 to be free.
-    </p>
-  </section>
+        </p>
+      </section>
+    </article>
+  </main>
 
-  <footer>
-    &copy; 2025 Quiet Reference. All rights reserved.
-  </footer>
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "I'm Not the Villain You Needed Me to Be",
+    "description": "An honest look at my side of the story.",
+    "url": "{{ site.url }}/poems/im-not-the-villain-you-needed-me-to-be.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
   <script src="../theme.js"></script>
 </body>
 </html>
-

@@ -170,3 +170,47 @@ footer {
   nav { gap: 0.3rem 0.8rem; font-size: 0.82rem; }
   h1 { font-size: 1.8rem; }
 }
+
+/* ─── Breadcrumb ───────────────────────────────────────────── */
+nav[aria-label="Breadcrumb"] ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+
+nav[aria-label="Breadcrumb"] li + li::before { content: "›"; margin-right: 0.25rem; }
+nav[aria-label="Breadcrumb"] a { color: var(--link); text-decoration: none; }
+nav[aria-label="Breadcrumb"] a:hover { color: var(--accent); }
+
+/* ─── Provenance ───────────────────────────────────────────── */
+.provenance { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
+.provenance code { font-family: monospace; font-size: 0.75rem; }
+
+/* ─── Print ────────────────────────────────────────────────── */
+@media print {
+  nav, #theme-toggle, aside, footer a { display: none; }
+  body { background: #fff; color: #000; padding: 0; max-width: 100%; font-size: 12pt; }
+  h1 { font-size: 18pt; }
+  a { color: #000; text-decoration: none; }
+  footer { border-top: 1px solid #ccc; margin-top: 2rem; }
+}
+
+/* ─── Poem Grid ────────────────────────────────────────────── */
+.poem-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; list-style: none; padding: 0; margin: 0; }
+.poem-grid li { opacity: 0; transform: translateY(16px); animation: fadeUp 0.5s ease forwards; }
+.poem-grid li:nth-child(1){animation-delay:.05s} .poem-grid li:nth-child(2){animation-delay:.12s}
+.poem-grid li:nth-child(3){animation-delay:.19s} .poem-grid li:nth-child(4){animation-delay:.26s}
+.poem-grid li:nth-child(5){animation-delay:.33s} .poem-grid li:nth-child(6){animation-delay:.40s}
+.poem-grid li:nth-child(7){animation-delay:.47s}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+.poem-card { display: block; background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem 1.6rem; text-decoration: none; color: inherit; transition: box-shadow 0.25s, border-color 0.25s, transform 0.2s; }
+.poem-card:hover { box-shadow: 0 6px 20px var(--shadow); border-color: var(--accent); transform: translateY(-2px); }
+.poem-card .title { font-size: 1.05rem; font-weight: bold; color: var(--link); display: block; margin-bottom: 0.5rem; }
+.poem-card .desc  { font-size: 0.92rem; color: var(--muted); font-style: italic; line-height: 1.5; }
+.poem-card .arrow { display: inline-block; margin-top: 0.9rem; font-size: 0.85rem; color: var(--accent); }

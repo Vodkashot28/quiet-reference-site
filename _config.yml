@@ -3,6 +3,15 @@ description: Sanctuary for truth, restraint, and emotional clarity
 url: "https://quietreference.xyz"
 baseurl: ""
 markdown: kramdown
+
+# Provenance — injected by CI
+ipfs_cid: ""
+git_hash: ""
+
+# Discovery
+sitemap_url: "/sitemap.xml"
+feed_url: "/feed.xml"
+
 exclude:
   - node_modules
   - Gemfile

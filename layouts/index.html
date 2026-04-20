@@ -1,110 +1,19 @@
+---
+title: Quiet Reference
+description: Sanctuary for truth, restraint, and emotional clarity
+og_type: website
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiet Reference</title>
-
-  <!-- Favicon and Web Manifest -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="assets/favicon/site.webmanifest">
-
-  <link rel="stylesheet" href="style.css" />
+  {% include head.html %}
   <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #f8f6f2;
-      color: #2e2e2e;
-      line-height: 1.7;
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    nav {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #3a4a5a;
-      font-weight: bold;
-      letter-spacing: 0.03em;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #a67c52;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      color: #3a4a5a;
-    }
-
-    .tagline {
-      font-style: italic;
-      color: #a67c52;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-image {
-      max-width: 100%;
-      height: auto;
-      margin-top: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    section {
-      text-align: left;
-      margin-top: 2rem;
-    }
-
-    section p {
-      margin-bottom: 1.5rem;
-    }
-
-    a.read-more {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #3a4a5a;
-      text-decoration: underline;
-      font-weight: 500;
-    }
-
-    a.read-more:hover {
-      color: #a67c52;
-    }
-
-    footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #777;
-      text-align: center;
-    }
+    .hero-image { max-width: 100%; height: auto; margin-top: 2rem; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow); }
+    aside { margin-top: 2rem; font-style: italic; color: var(--muted); font-size: 0.95rem; }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="letters-unsent.html">Letters Unsent</a>
-    <a href="fragments.html">Fragments</a>
-    <a href="about.html">About</a>
-    <a href="foundation.html">Foundations</a>
-  </nav>
+  {% include nav.html %}
 
   <header>
     <h1>Quiet Reference</h1>
@@ -112,17 +21,29 @@
   </header>
 
   <main>
-    <img src="assets/images/quiet_desk_and_book.png" alt="A quiet desk with a book and a cup of tea." class="hero-image">
+    <img src="assets/images/quiet_desk_and_book.png" alt="A quiet desk with a book and a cup of tea." class="hero-image" width="900" height="600" />
 
-    <section>
+    <section aria-label="Introduction">
       <p>For words that do not beg to be heard, but deserve to be remembered. For truths that do not accuse, but refuse to be erased.</p>
       <p>This is a place for quiet reflection, for fragments of thought, and for the letters that were never sent. Here, strength is found not in volume, but in a profound sense of peace and a gentle reckoning with the past.</p>
     </section>
+
+    <aside aria-label="Support this work">
+      <p>If this space has offered you something, consider <a href="https://ko-fi.com/ayawkol" target="_blank" rel="noopener">supporting its preservation</a>.</p>
+    </aside>
   </main>
 
-  <footer>
-    &copy; 2025 Quiet Reference. All rights reserved.
-  </footer>
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}"
+  }
+  </script>
+  <script src="theme.js"></script>
 </body>
 </html>
-

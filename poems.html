@@ -1,208 +1,28 @@
+---
+title: Poems – Quiet Reference
+description: All poems from Quiet Reference — words that do not beg to be heard, but deserve to be remembered.
+---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poems – Quiet Reference</title>
-  <meta name="description" content="All poems from Quiet Reference — words that do not beg to be heard, but deserve to be remembered." />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="assets/favicon/site.webmanifest">
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Georgia, serif;
-      background-color: #f8f6f2;
-      color: #2e2e2e;
-      line-height: 1.7;
-      padding: 2rem;
-      max-width: 860px;
-      margin: auto;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    h1 {
-      font-size: 2.4rem;
-      color: #3a4a5a;
-      margin-bottom: 0.4rem;
-    }
-
-    .tagline {
-      font-style: italic;
-      color: #a67c52;
-      font-size: 1.1rem;
-    }
-
-    .poem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .poem-grid li {
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.5s ease forwards;
-    }
-
-    .poem-grid li:nth-child(1) { animation-delay: 0.05s; }
-    .poem-grid li:nth-child(2) { animation-delay: 0.12s; }
-    .poem-grid li:nth-child(3) { animation-delay: 0.19s; }
-    .poem-grid li:nth-child(4) { animation-delay: 0.26s; }
-    .poem-grid li:nth-child(5) { animation-delay: 0.33s; }
-    .poem-grid li:nth-child(6) { animation-delay: 0.40s; }
-    .poem-grid li:nth-child(7) { animation-delay: 0.47s; }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .poem-card {
-      display: block;
-      background: #fff;
-      border: 1px solid #e4ddd4;
-      border-radius: 6px;
-      padding: 1.4rem 1.6rem;
-      text-decoration: none;
-      color: inherit;
-      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
-      height: 100%;
-      box-sizing: border-box;
-    }
-
-    .poem-card:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      border-color: #c4a882;
-      transform: translateY(-2px);
-    }
-
-    .poem-card .title {
-      font-size: 1.05rem;
-      font-weight: bold;
-      color: #3a4a5a;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .poem-card .desc {
-      font-size: 0.92rem;
-      color: #6b6b6b;
-      font-style: italic;
-      line-height: 1.5;
-    }
-
-    .poem-card .arrow {
-      display: inline-block;
-      margin-top: 0.9rem;
-      font-size: 0.85rem;
-      color: #a67c52;
-      letter-spacing: 0.04em;
-    }
-
-    footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #777;
-      text-align: center;
-    }
-
-    /* dark mode */
-    body.dark {
-      background-color: #1a1a1a;
-      color: #d4cfc8;
-    }
-    body.dark .poem-card {
-      background: #242424;
-      border-color: #3a3a3a;
-    }
-    body.dark .poem-card:hover {
-      border-color: #a67c52;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-    body.dark .poem-card .title { color: #b8c8d8; }
-    body.dark .poem-card .desc  { color: #888; }
-  </style>
-</head>
+<head>{% include head.html %}</head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="poems.html">Poems</a>
-    <a href="letters-unsent.html">Letters Unsent</a>
-    <a href="fragments.html">Fragments</a>
-    <a href="about.html">About</a>
-    <a href="foundation.html">Foundations</a>
-    <a href="recovered.html">Recovered</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">☾</button>
-  </nav>
-
+  {% include nav.html %}
   <header>
     <h1>Poems</h1>
     <p class="tagline">Words that do not beg to be heard, but deserve to be remembered.</p>
   </header>
-
   <main>
     <ul class="poem-grid">
-      <li>
-        <a class="poem-card" href="poems/i-dont-owe-your-trust.html">
-          <span class="title">I Don't Owe You Trust</span>
-          <span class="desc">Navigating new truths, boundaries, and a foundation of one's own.</span>
-          <span class="arrow">Read →</span>
-        </a>
-      </li>
-      <li>
-        <a class="poem-card" href="poems/i-forgive-me.html">
-          <span class="title">I Forgive Me</span>
-          <span class="desc">A reckoning with guilt, survival, and quiet strength.</span>
-          <span class="arrow">Read →</span>
-        </a>
-      </li>
-      <li>
-        <a class="poem-card" href="poems/im-not-the-villain-you-needed-me-to-be.html">
-          <span class="title">I'm Not the Villain You Needed Me to Be</span>
-          <span class="desc">An honest look at my side of the story.</span>
-          <span class="arrow">Read →</span>
-        </a>
-      </li>
-      <li>
-        <a class="poem-card" href="poems/not-to-win-but-to-witness.html">
-          <span class="title">Not to Win, But to Witness</span>
-          <span class="desc">Not to be right, but to be real.</span>
-          <span class="arrow">Read →</span>
-        </a>
-      </li>
-      <li>
-        <a class="poem-card" href="poems/what-i-want-myself-to-remember.html">
-          <span class="title">What I Want Myself to Remember</span>
-          <span class="desc">A message to myself about breaking cycles.</span>
-          <span class="arrow">Read →</span>
-        </a>
-      </li>
-      <li>
-        <a class="poem-card" href="poems/what-i-want-you-to-know.html">
-          <span class="title">What I Want You to Know</span>
-          <span class="desc">A love letter to the future of our children.</span>
-          <span class="arrow">Read →</span>
-        </a>
-      </li>
-      <li>
-        <a class="poem-card" href="poems/what-ill-never-carry-again.html">
-          <span class="title">What I'll Never Carry Again</span>
-          <span class="desc">On releasing the burden of others' expectations and lies.</span>
-          <span class="arrow">Read →</span>
-        </a>
-      </li>
+      <li><a class="poem-card" href="poems/i-dont-owe-your-trust.html"><span class="title">I Don't Owe You Trust</span><span class="desc">Navigating new truths, boundaries, and a foundation of one's own.</span><span class="arrow">Read →</span></a></li>
+      <li><a class="poem-card" href="poems/i-forgive-me.html"><span class="title">I Forgive Me</span><span class="desc">A reckoning with guilt, survival, and quiet strength.</span><span class="arrow">Read →</span></a></li>
+      <li><a class="poem-card" href="poems/im-not-the-villain-you-needed-me-to-be.html"><span class="title">I'm Not the Villain You Needed Me to Be</span><span class="desc">An honest look at my side of the story.</span><span class="arrow">Read →</span></a></li>
+      <li><a class="poem-card" href="poems/not-to-win-but-to-witness.html"><span class="title">Not to Win, But to Witness</span><span class="desc">Not to be right, but to be real.</span><span class="arrow">Read →</span></a></li>
+      <li><a class="poem-card" href="poems/what-i-want-myself-to-remember.html"><span class="title">What I Want Myself to Remember</span><span class="desc">A message to myself about breaking cycles.</span><span class="arrow">Read →</span></a></li>
+      <li><a class="poem-card" href="poems/what-i-want-you-to-know.html"><span class="title">What I Want You to Know</span><span class="desc">A love letter to the future of our children.</span><span class="arrow">Read →</span></a></li>
+      <li><a class="poem-card" href="poems/what-ill-never-carry-again.html"><span class="title">What I'll Never Carry Again</span><span class="desc">On releasing the burden of others' expectations and lies.</span><span class="arrow">Read →</span></a></li>
     </ul>
   </main>
-
-  <footer>&copy; 2026 Quiet Reference. All rights reserved.</footer>
+  {% include footer.html %}
   <script src="theme.js"></script>
 </body>
 </html>

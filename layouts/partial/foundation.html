@@ -1,45 +1,30 @@
+---
+title: Foundations – Quiet Reference
+description: The architecture beneath the quiet. Built with intention, hosted on IPFS, versioned through Git.
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Foundations – Quiet Reference</title>
-  <link rel="stylesheet" href="style.css" />
+  {% include head.html %}
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="letters-unsent.html">Letters Unsent</a>
-    <a href="fragments.html">Fragments</a>
-    <a href="about.html">About</a>
-    <a href="foundation.html">Foundations</a>
-  </nav>
+  {% include nav.html %}
 
   <header>
     <h1>Foundations</h1>
     <p class="tagline">The architecture beneath the quiet.</p>
   </header>
 
-  <section>
-    <p>
-      This site is built with intention. Every file, every fragment, every silence is chosen.
-      Hosted on IPFS for resilience. Versioned through Git for integrity.
-      Styled with restraint to reflect the emotional tone of its contents.
-    </p>
+  <main>
+    <section class="prose" aria-label="About this site">
+      <p>This site is built with intention. Every file, every fragment, every silence is chosen. Hosted on IPFS for resilience. Versioned through Git for integrity. Styled with restraint to reflect the emotional tone of its contents.</p>
+      <p>Quiet Reference is not a blog. It is not a journal. It is a record. A modular archive of emotional and technical artifacts—preserved for clarity, not commentary.</p>
+      <p>The foundations of this space are emotional truth and reproducible infrastructure. It is built to endure, even when memory fades. It is built for my children, and for myself.</p>
+    </section>
+  </main>
 
-    <p>
-      Quiet Reference is not a blog. It is not a journal. It is a record.
-      A modular archive of emotional and technical artifacts—preserved for clarity, not commentary.
-    </p>
+  {% include footer.html %}
 
-    <p>
-      The foundations of this space are emotional truth and reproducible infrastructure.
-      It is built to endure, even when memory fades. It is built for my children, and for myself.
-    </p>
-  </section>
-
-  <footer>
-    &copy; 2025 Quiet Reference. All rights reserved.
-  </footer>
+  <script src="theme.js"></script>
 </body>
 </html>

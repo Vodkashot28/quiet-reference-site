@@ -1,57 +1,39 @@
+---
+title: Letters Unsent – Quiet Reference
+description: Responses never delivered, but deeply felt. Letters written not to send, but to survive.
+---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Letters Unsent – Quiet Reference</title>
-  <meta name="description" content="Responses never delivered, but deeply felt. Letters written not to send, but to survive." />
-  <link rel="stylesheet" href="style.css" />
-</head>
+<head>{% include head.html %}</head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="poems.html">Poems</a>
-    <a href="letters-unsent.html">Letters Unsent</a>
-    <a href="fragments.html">Fragments</a>
-    <a href="about.html">About</a>
-    <a href="foundation.html">Foundations</a>
-    <a href="recovered.html">Recovered</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">☾</button>
-  </nav>
-
+  {% include nav.html %}
   <header>
     <h1>Letters Unsent</h1>
     <p class="tagline">Responses never delivered, but deeply felt.</p>
   </header>
-
   <main>
     <article class="card">
       <h2><a href="poems/im-not-the-villain-you-needed-me-to-be.html">I'm Not the Villain You Needed Me to Be</a></h2>
       <p>An honest look at my side of the story.</p>
     </article>
-
     <article class="card">
       <h2><a href="poems/not-to-win-but-to-witness.html">Not to Win, But to Witness</a></h2>
       <p>Not to be right, but to be real.</p>
     </article>
-
     <article class="card">
       <h2><a href="poems/what-i-want-myself-to-remember.html">What I Want Myself to Remember</a></h2>
       <p>A message to myself about breaking cycles.</p>
     </article>
-
     <article class="card">
       <h2><a href="poems/what-i-want-you-to-know.html">What I Want You to Know</a></h2>
       <p>A love letter to the future of our children.</p>
     </article>
-
     <article class="card">
       <h2><a href="poems/what-ill-never-carry-again.html">What I'll Never Carry Again</a></h2>
       <p>On releasing the burden of others' expectations and lies.</p>
     </article>
   </main>
-
-  <footer>&copy; 2026 Quiet Reference. All rights reserved.</footer>
+  {% include footer.html %}
   <script src="theme.js"></script>
 </body>
 </html>

@@ -13,9 +13,6 @@ manifest.log
 # IPFS binaries
 go-ipfs/
 
-# Netlify
-.netlify
-
 # OS
 .DS_Store
 Thumbs.db

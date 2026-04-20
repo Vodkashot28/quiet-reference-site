@@ -1,33 +1,20 @@
+---
+title: Page Not Found – Quiet Reference
+description: The page you're looking for doesn't exist, but your search for clarity is welcome here.
+---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found – Quiet Reference</title>
-  <meta name="description" content="The page you're looking for doesn't exist, but your search for clarity is welcome here." />
-  <link rel="stylesheet" href="style.css" />
-</head>
+<head>{% include head.html %}</head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="poems.html">Poems</a>
-    <a href="letters-unsent.html">Letters Unsent</a>
-    <a href="fragments.html">Fragments</a>
-    <a href="about.html">About</a>
-    <a href="foundation.html">Foundations</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">☾</button>
-  </nav>
-
+  {% include nav.html %}
   <header>
     <h1>404</h1>
     <p class="tagline">This space doesn't exist yet. But your search for clarity is welcome here.</p>
   </header>
-
-  <section style="text-align:center; margin-top: 2rem;">
+  <main style="text-align:center; margin-top:2rem;">
     <a href="index.html" class="read-more">← Return home</a>
-  </section>
-
-  <footer>&copy; 2026 Quiet Reference. All rights reserved.</footer>
+  </main>
+  {% include footer.html %}
   <script src="theme.js"></script>
 </body>
 </html>

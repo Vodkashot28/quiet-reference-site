@@ -1,130 +1,94 @@
+---
+title: What I'll Never Carry Again – Quiet Reference
+description: On releasing the burden of others' expectations and lies.
+og_type: article
+root: ../
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What I’ll Never Carry Again – Quiet Reference</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      background-color: #f8f6f2;
-      color: #2e2e2e;
-      line-height: 1.7;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    nav {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-    }
-
-    nav a {
-      margin: 0 1.2rem;
-      text-decoration: none;
-      color: #3a4a5a;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #a67c52;
-    }
-
-    h1 {
-      text-align: center;
-      color: #3a4a5a;
-      margin-bottom: 1rem;
-    }
-
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #a67c52;
-      margin-bottom: 2rem;
-    }
-
-    p {
-      white-space: pre-line;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 4rem;
-    }
-  </style>
+  {% include head.html %}
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../poems.html">Poems</a>
-    <a href="../letters-unsent.html">Letters Unsent</a>
-    <a href="../fragments.html">Fragments</a>
-    <a href="../about.html">About</a>
-    <a href="../foundation.html">Foundations</a>
-    <a href="../recovered.html">Recovered</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">☾</button>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">What I'll Never Carry Again</li>
+    </ol>
   </nav>
 
-  <h1>What I’ll Never Carry Again</h1>
-  <p class="tagline">On releasing the burden of others’ expectations and lies.</p>
+  <main>
+    <article>
+      <header>
+        <h1>What I'll Never Carry Again</h1>
+        <p class="tagline">On releasing the burden of others' expectations and lies.</p>
+      </header>
 
-  <section>
-    <p>
-I’ve carried silence
+      <section aria-label="Poem text">
+        <p>
+I've carried silence
 like a second skin—
 tight, suffocating,
 but familiar.
 
-I’ve carried blame
-for things I didn’t break,
-for wounds I didn’t cause,
-for truths I wasn’t allowed to speak.
+I've carried blame
+for things I didn't break,
+for wounds I didn't cause,
+for truths I wasn't allowed to speak.
 
-I’ve carried the hope
+I've carried the hope
 that love would return
 if I just stayed soft enough,
 quiet enough,
 forgiving enough.
 
-But I won’t anymore.
+But I won't anymore.
 
-I’ll never carry
+I'll never carry
 the weight of secrets
 as if they were mine.
 
-I’ll never carry
+I'll never carry
 the shame handed to me
 when I asked for honesty.
 
-I’ll never carry
+I'll never carry
 the fear of being too much
 or not enough
 in the same breath.
 
 Because peace, for me,
 is truth spoken aloud.
-It’s boundaries drawn in bold.
-It’s walking through the fire
+It's boundaries drawn in bold.
+It's walking through the fire
 and refusing to wear the smoke.
 
-I didn’t lose anything.
+I didn't lose anything.
 I let go.
 
-And I’ll never
+And I'll never
 carry it again.
-    </p>
-  </section>
+        </p>
+      </section>
+    </article>
+  </main>
 
-  <footer>
-    &copy; 2025 Quiet Reference. All rights reserved.
-  </footer>
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "What I'll Never Carry Again",
+    "description": "On releasing the burden of others' expectations and lies.",
+    "url": "{{ site.url }}/poems/what-ill-never-carry-again.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
   <script src="../theme.js"></script>
 </body>
 </html>
-

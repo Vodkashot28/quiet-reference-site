@@ -1,81 +1,34 @@
+---
+title: I Don't Owe You Trust – Quiet Reference
+description: Navigating new truths, boundaries, and a foundation of one's own.
+og_type: article
+root: ../
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I Don’t Owe You Trust – Quiet Reference</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      background-color: #f8f6f2;
-      color: #2e2e2e;
-      line-height: 1.7;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    nav {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-    }
-
-    nav a {
-      margin: 0 1.2rem;
-      text-decoration: none;
-      color: #3a4a5a;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #a67c52;
-    }
-
-    h1 {
-      text-align: center;
-      color: #3a4a5a;
-      margin-bottom: 1rem;
-    }
-
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #a67c52;
-      margin-bottom: 2rem;
-    }
-
-    p {
-      white-space: pre-line;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 4rem;
-    }
-  </style>
+  {% include head.html %}
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../poems.html">Poems</a>
-    <a href="../letters-unsent.html">Letters Unsent</a>
-    <a href="../fragments.html">Fragments</a>
-    <a href="../about.html">About</a>
-    <a href="../foundation.html">Foundations</a>
-    <a href="../recovered.html">Recovered</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">☾</button>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">I Don't Owe You Trust</li>
+    </ol>
   </nav>
 
-  <h1>I Don’t Owe You Trust</h1>
-  <p class="tagline">Navigating new truths, boundaries, and a foundation of one’s own.</p>
+  <main>
+    <article>
+      <header>
+        <h1>I Don't Owe You Trust</h1>
+        <p class="tagline">Navigating new truths, boundaries, and a foundation of one's own.</p>
+      </header>
 
-  <section>
-    <p>
+      <section aria-label="Poem text">
+        <p>
 We share a roof,
 but not a foundation.
 The walls still stand,
@@ -84,12 +37,12 @@ says more than words ever could.
 
 You say you want change.
 You say you want right.
-But trust isn’t built
+But trust isn't built
 on apologies alone—
 especially when truth
 was the last thing offered.
 
-I’m here.
+I'm here.
 Not because I believe you.
 Not because I forgot.
 But because our children
@@ -97,28 +50,39 @@ deserve stability,
 even if the ground beneath us
 is cracked.
 
-I don’t owe you trust.
+I don't owe you trust.
 I owe myself peace.
 I owe them clarity.
 And I owe the truth
 its place at the table.
 
-I’m not rebuilding.
-I’m surviving.
-I’m protecting what’s left
-and guarding what’s mine.
+I'm not rebuilding.
+I'm surviving.
+I'm protecting what's left
+and guarding what's mine.
 
-Because healing isn’t about
+Because healing isn't about
 going back.
-It’s about knowing
+It's about knowing
 what not to carry forward.
-    </p>
-  </section>
+        </p>
+      </section>
+    </article>
+  </main>
 
-  <footer>
-    &copy; 2025 Quiet Reference. All rights reserved.
-  </footer>
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "I Don't Owe You Trust",
+    "description": "Navigating new truths, boundaries, and a foundation of one's own.",
+    "url": "{{ site.url }}/poems/i-dont-owe-your-trust.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
   <script src="../theme.js"></script>
 </body>
 </html>
-
