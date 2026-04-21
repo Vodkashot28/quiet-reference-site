@@ -6,7 +6,7 @@ markdown: kramdown
 year: 2026
 
 # Provenance — injected by CI
-ipfs_cid: "bafybeif3a5pxws3fqt3fhsrhphw3kc4bueob33uik3dxnidsomhtnneusy"
+ipfs_cid: "bafybeiemq7eidrbbmksy2owan23rwernkkjv6apvcjs6lbxlvalcrzsxea"
 git_hash: ""
 
 # Discovery
