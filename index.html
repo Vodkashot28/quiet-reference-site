@@ -2,34 +2,142 @@
 title: Quiet Reference
 description: Sanctuary for truth, restraint, and emotional clarity
 og_type: website
+og_image: /assets/images/quiet_desk_and_book.png
+canonical_url: https://quietreference.xyz/
+provenance_cid: bafybeif3a5pxws3fqt3fhsrhphw3kc4bueob33uik3dxnidsomhtnneusy
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   {% include head.html %}
   <style>
-    .hero-image { max-width: 100%; height: auto; margin-top: 2rem; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow); }
-    aside { margin-top: 2rem; font-style: italic; color: var(--muted); font-size: 0.95rem; }
+    .hero-image {
+      max-width: 100%;
+      height: auto;
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px var(--shadow);
+      display: block;
+    }
+
+    .intro {
+      margin-top: 2.5rem;
+    }
+
+    .intro p + p {
+      margin-top: 1rem;
+    }
+
+    .collections {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .collection-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .collection-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    .collection-card .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .collection-card .title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--link);
+    }
+
+    .collection-card .desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    aside {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    aside a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   {% include nav.html %}
 
-  <header>
+  <header role="banner">
     <h1>Quiet Reference</h1>
     <p class="tagline">This space is not for spectacle. It is for anchoring.</p>
   </header>
 
-  <main>
-    <img src="assets/images/quiet_desk_and_book.png" alt="A quiet desk with a book and a cup of tea." class="hero-image" width="900" height="600" />
+  <main role="main">
+    <img src="assets/images/quiet_desk_and_book.png"
+         alt="A quiet desk with a book and a cup of tea."
+         class="hero-image"
+         width="900" height="600"
+         loading="lazy" />
 
-    <section aria-label="Introduction">
+    <section class="intro" aria-label="Introduction">
       <p>For words that do not beg to be heard, but deserve to be remembered. For truths that do not accuse, but refuse to be erased.</p>
       <p>This is a place for quiet reflection, for fragments of thought, and for the letters that were never sent. Here, strength is found not in volume, but in a profound sense of peace and a gentle reckoning with the past.</p>
     </section>
 
+    <nav class="collections" aria-label="Content collections">
+      <a href="poems.html" class="collection-card">
+        <div class="label">Collection</div>
+        <div class="title">Poems</div>
+        <div class="desc">Words that hold their ground</div>
+      </a>
+      <a href="letters-unsent.html" class="collection-card">
+        <div class="label">Collection</div>
+        <div class="title">Letters Unsent</div>
+        <div class="desc">What was never delivered</div>
+      </a>
+      <a href="fragments.html" class="collection-card">
+        <div class="label">Collection</div>
+        <div class="title">Fragments</div>
+        <div class="desc">Thoughts too true to finish</div>
+      </a>
+      <a href="foundation.html" class="collection-card">
+        <div class="label">Page</div>
+        <div class="title">Foundations</div>
+        <div class="desc">What this place is built on</div>
+      </a>
+    </nav>
+
     <aside aria-label="Support this work">
-      <p>If this space has offered you something, consider <a href="https://ko-fi.com/ayawkol" target="_blank" rel="noopener">supporting its preservation</a>.</p>
+      <p>If this space has offered you something, consider
+        <a href="https://ko-fi.com/ayawkol" target="_blank" rel="noopener">supporting its preservation</a>.
+      </p>
     </aside>
   </main>
 

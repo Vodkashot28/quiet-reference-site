@@ -45,7 +45,7 @@
   });
 })();
 
-// Text-to-speech
+// Text-to-speech — human-like poetry reading
 (function () {
   const btn = document.getElementById('btn-tts');
   if (!btn || !window.speechSynthesis) return;
@@ -53,19 +53,78 @@
   const section = document.querySelector('[aria-label="Poem text"]');
   if (!section) return;
 
-  let utterance = null;
+  // Prefer a natural English voice; fall back to whatever is available.
+  function pickVoice () {
+    const voices = speechSynthesis.getVoices();
+    const preferred = [
+      'Samantha', 'Karen', 'Moira',          // macOS / iOS naturals
+      'Google UK English Female',
+      'Google US English',
+      'Microsoft Aria Online',
+      'Microsoft Jenny Online',
+    ];
+    for (const name of preferred) {
+      const v = voices.find(function (v) { return v.name === name; });
+      if (v) return v;
+    }
+    // Fall back to first en-* voice, then anything
+    return voices.find(function (v) { return /^en/i.test(v.lang); }) || voices[0] || null;
+  }
+
+  // Convert raw poem text into SSML-style pauses by inserting silence markers.
+  // Web Speech API doesn't support SSML in browsers, so we split into
+  // per-line utterances with pauses between them for a natural cadence.
+  function speakPoem () {
+    const lines = section.innerText
+      .split('\n')
+      .map(function (l) { return l.trim(); });
+
+    const voice = pickVoice();
+    let i = 0;
+
+    function speakLine () {
+      if (i >= lines.length) {
+        btn.textContent = '▶ Listen';
+        return;
+      }
+
+      const line = lines[i++];
+      const u = new SpeechSynthesisUtterance(line || '\u00A0'); // blank line = breath pause
+      if (voice) u.voice = voice;
+      u.rate  = 0.82;   // slightly slower than natural speech — deliberate, not rushed
+      u.pitch = 1.0;
+      u.volume = 1.0;
+
+      // Longer pause after blank lines (stanza breaks) and sentence-ending punctuation
+      const isBlank     = line === '';
+      const isSentence  = /[.!?]$/.test(line);
+      const pauseMs     = isBlank ? 700 : isSentence ? 420 : 180;
+
+      u.onend = function () {
+        if (!speechSynthesis.speaking) {
+          setTimeout(speakLine, pauseMs);
+        }
+      };
+
+      speechSynthesis.speak(u);
+    }
+
+    speakLine();
+    btn.textContent = '■ Stop';
+  }
 
   btn.addEventListener('click', function () {
-    if (speechSynthesis.speaking) {
+    if (speechSynthesis.speaking || speechSynthesis.pending) {
       speechSynthesis.cancel();
       btn.textContent = '▶ Listen';
       return;
     }
-    utterance = new SpeechSynthesisUtterance(section.innerText);
-    utterance.rate = 0.85;
-    utterance.onend = function () { btn.textContent = '▶ Listen'; };
-    speechSynthesis.speak(utterance);
-    btn.textContent = '■ Stop';
+    // Voices may not be loaded yet on first interaction
+    if (speechSynthesis.getVoices().length === 0) {
+      speechSynthesis.addEventListener('voiceschanged', speakPoem, { once: true });
+    } else {
+      speakPoem();
+    }
   });
 })();
 
@@ -89,12 +148,20 @@
   btn.href = 'https://twitter.com/intent/tweet?text=' + text;
 })();
 
-// Share: native (mobile)
+// Share: native (mobile) — pre-fills excerpt + URL
 (function () {
   const btn = document.getElementById('btn-share');
   if (!btn) return;
   if (!navigator.share) { btn.style.display = 'none'; return; }
   btn.addEventListener('click', function () {
-    navigator.share({ title: document.title, url: location.href });
+    const section = document.querySelector('[aria-label="Poem text"]');
+    const firstLine = section
+      ? section.innerText.split('\n').find(function (l) { return l.trim(); }) || ''
+      : '';
+    navigator.share({
+      title: document.title,
+      text: firstLine ? '\u201C' + firstLine.trim() + '\u201D \u2014 Quiet Reference' : document.title,
+      url: location.href
+    });
   });
 })();

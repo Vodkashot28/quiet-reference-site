@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+  {% include social-card.html %}
+  {{ page.head_extra }}
+</head>
+<body>
+  {% include nav.html %}
+  {{ content }}
+  {% include footer.html %}
+  {% if page.schema %}
+  <script type="application/ld+json">{{ page.schema }}</script>
+  {% endif %}
+  <script src="{{ page.root | default: '' }}theme.js"></script>
+</body>
+</html>

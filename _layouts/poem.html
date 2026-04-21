@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:999;transition:width 0.1s"></div>
+
+<nav aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ page.root | default: '' }}index.html">Home</a></li>
+    <li><a href="{{ page.root | default: '' }}poems.html">Poems</a></li>
+    <li aria-current="page">{{ page.poem_title | default: page.title }}</li>
+  </ol>
+</nav>
+
+<main>
+  <article>
+    <header>
+      <h1>{{ page.poem_title | default: page.title }}</h1>
+      {% if page.description %}<p class="tagline">{{ page.description }}</p>{% endif %}
+    </header>
+
+    <section aria-label="Poem text">
+      {{ content }}
+    </section>
+
+    {% include poem-actions.html %}
+  </article>
+</main>
+
+<script src="{{ page.root | default: '' }}static/js/popup.js"></script>
+<script src="{{ page.root | default: '' }}static/js/poem.js"></script>

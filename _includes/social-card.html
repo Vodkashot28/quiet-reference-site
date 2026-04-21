@@ -1,0 +1,18 @@
+{% comment %}
+  Emits og:image + twitter:image pointing to the per-page SVG card.
+  Falls back to the static og_image if no slug is available.
+  Usage: {% include social-card.html %}
+{% endcomment %}
+{% assign card_slug = page.slug | default: page.name | replace: '.html', '' %}
+{% if card_slug and card_slug != '' %}
+  {% assign card_url = site.url | append: '/assets/social/' | append: card_slug | append: '.svg' %}
+{% elsif page.og_image %}
+  {% assign card_url = site.url | append: page.og_image %}
+{% else %}
+  {% assign card_url = site.url | append: '/assets/images/quiet_desk_and_book.png' %}
+{% endif %}
+<meta property="og:image" content="{{ card_url }}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="{{ card_url }}"/>
