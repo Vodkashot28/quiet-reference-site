@@ -1,5 +1,5 @@
 <footer>
-  <p>&copy; {{ site.year | default: '2025' }} Quiet Reference. All rights reserved.</p>
+  <p>&copy; {{ site.year | default: '2026' }} Quiet Reference. All rights reserved.</p>
   {% if site.ipfs_cid %}<p class="provenance">Anchored at CID: <code>{{ site.ipfs_cid }}</code></p>{% endif %}
   {% if site.git_hash %}<p class="provenance">Build: <code>{{ site.git_hash }}</code></p>{% endif %}
   <p>
@@ -8,3 +8,4 @@
     <a href="https://github.com/sponsors/ayawkol" target="_blank" rel="noopener" aria-label="Sponsor on GitHub">♥ GitHub Sponsors</a>
   </p>
 </footer>
+<script src="{{ page.root | default: '' }}static/js/stars.js"></script>

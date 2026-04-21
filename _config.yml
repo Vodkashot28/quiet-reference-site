@@ -3,6 +3,7 @@ description: Sanctuary for truth, restraint, and emotional clarity
 url: "https://quietreference.xyz"
 baseurl: ""
 markdown: kramdown
+year: 2026
 
 # Provenance — injected by CI
 ipfs_cid: ""
@@ -17,7 +18,12 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - package.json
+  - package-lock.json
   - Makefile
   - deploy
-  - go-ipfs
-  - actions-runner
+  - archive
+  - js
+  - _styl
+  - dnslink.sh
+  - poem.js
+  - theme.js
