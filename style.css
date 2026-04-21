@@ -191,6 +191,60 @@ nav[aria-label="Breadcrumb"] a:hover { color: var(--accent); }
 .provenance { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
 .provenance code { font-family: monospace; font-size: 0.75rem; }
 
+/* ─── Grain / Paper Texture ────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+[data-theme="dark"] body::before { opacity: 0.055; }
+
+/* ─── Poem Actions (Share + TTS) ───────────────────────────── */
+.poem-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.action-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.action-btn:hover { border-color: var(--accent); background: var(--bg); }
+.action-btn:active { transform: scale(0.97); }
+
+/* ─── Stanza Scroll Reveal ─────────────────────────────────── */
+.stanza {
+  display: block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.stanza.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ─── Print ────────────────────────────────────────────────── */
 @media print {
   nav, #theme-toggle, aside, footer a { display: none; }

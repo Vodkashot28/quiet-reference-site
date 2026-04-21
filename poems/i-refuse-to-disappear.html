@@ -1,0 +1,73 @@
+---
+title: I Refuse to Disappear – Quiet Reference
+description: On refusing to vanish into blame, silence, or the shadows others cast.
+og_type: article
+root: ../
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:999;transition:width 0.1s"></div>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">I Refuse to Disappear</li>
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <header>
+        <h1>I Refuse to Disappear</h1>
+        <p class="tagline">On refusing to vanish into blame, silence, or the shadows others cast.</p>
+      </header>
+
+      <section aria-label="Poem text">
+        <p>
+I will not vanish
+into blame,
+into the shadows others cast.
+
+I will not shrink
+to make peace
+with lies.
+
+I will not erase myself
+to keep the roof steady.
+
+I remain.
+Not as a ghost,
+not as a wound,
+but as a voice
+that insists on being heard.
+        </p>
+      </section>
+
+      {% include poem-actions.html %}
+    </article>
+  </main>
+
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "I Refuse to Disappear",
+    "description": "On refusing to vanish into blame, silence, or the shadows others cast.",
+    "url": "{{ site.url }}/poems/i-refuse-to-disappear.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
+  <script src="../theme.js"></script>
+  <script src="../static/js/popup.js"></script>
+  <script src="../static/js/poem.js"></script>
+</body>
+</html>

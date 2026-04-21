@@ -1,0 +1,71 @@
+---
+title: I Hold My Own Name – Quiet Reference
+description: On survival, repair, and speaking your own name without fear.
+og_type: article
+root: ../
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:999;transition:width 0.1s"></div>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">I Hold My Own Name</li>
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <header>
+        <h1>I Hold My Own Name</h1>
+        <p class="tagline">On survival, repair, and speaking your own name without fear.</p>
+      </header>
+
+      <section aria-label="Poem text">
+        <p>
+Names were given to me—
+violent, broken,
+unworthy.
+
+But I hold my own name.
+It is not shame.
+It is not failure.
+It is not silence.
+
+It is survival.
+It is repair.
+
+And I will speak it
+without fear.
+        </p>
+      </section>
+
+      {% include poem-actions.html %}
+    </article>
+  </main>
+
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "I Hold My Own Name",
+    "description": "On survival, repair, and speaking your own name without fear.",
+    "url": "{{ site.url }}/poems/i-hold-my-own-name.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
+  <script src="../theme.js"></script>
+  <script src="../static/js/popup.js"></script>
+  <script src="../static/js/poem.js"></script>
+</body>
+</html>

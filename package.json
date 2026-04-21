@@ -1,28 +1,29 @@
 {
   "name": "quietreference-site",
   "version": "1.0.0",
-  "description": "Static site built with Jekyll, deployed via IPFS, and styled with LESS.",
+  "description": "Static site built with Jekyll, deployed via IPFS, and styled with LESS/Stylus.",
   "license": "MIT",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all -p prebuild:* && npm-run-all -p build:*",
+    "prebuild:js": "mkdir -p static/js",
     "build:css": "stylus -u autoprefixer-stylus -I node_modules/yeticss/lib -c -o static/css _styl/main.styl",
     "build:js": "browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js",
-    "prebuild:js": "mkdir -p static/js",
-    "build:jekyll": "jekyll build",
-    "deploy": "jekyll build && ipfs add -r _site",
-    "deploy:surge": "jekyll build && surge --project _site --domain ipfs.surge.sh",
+    "build:jekyll": "bundle exec jekyll build",
+    "deploy": "bundle exec jekyll build && ipfs add -r _site",
+    "deploy:surge": "bundle exec jekyll build && surge --project _site --domain ipfs.surge.sh",
     "minify": "npm-run-all minify:*",
     "minify:img": "find _site/images -type d -exec imagemin {}/* --out-dir={} \\;",
     "minify:js": "find _site/js -name '*.js' -exec uglifyjs {} --compress --output {} \\;",
     "watch": "npm-run-all -p watch:*",
     "watch:css": "stylus -u autoprefixer-stylus -I node_modules/yeticss/lib -w _styl/main.styl -c -o static/css",
     "watch:js": "nodemon --watch js --exec \"browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js\"",
-    "watch:jekyll": "jekyll serve --watch",
+    "watch:jekyll": "bundle exec jekyll serve --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "autoprefixer-stylus": "^1.0.0",
     "browserify": "^14.4.0",
     "dnslink-deploy": "^1.0.7",
     "factor-bundle": "^2.5.0",
@@ -36,10 +37,11 @@
     "less-plugin-clean-css": "^1.5.1",
     "magnific-popup": "^1.1.0",
     "node-static": "^0.7.9",
-    "nodemon": "^1.19.1",
+    "nodemon": "^3.1.14",
     "npm-run-all": "^4.1.5",
     "pixi.js": "^4.8.8",
-    "standard": "^10.0.2",
+    "standard": "^17.1.2",
+    "stylus": "^0.64.0",
     "uglify-js": "^3.6.0",
     "watchify": "^3.9.0"
   },
@@ -49,4 +51,3 @@
     ]
   }
 }
-

@@ -1,0 +1,82 @@
+---
+title: I Am More Than What Broke Me – Quiet Reference
+description: Beyond the worst moment — the quiet rebuilding no one applauded.
+og_type: article
+root: ../
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:999;transition:width 0.1s"></div>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">I Am More Than What Broke Me</li>
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <header>
+        <h1>I Am More Than What Broke Me</h1>
+        <p class="tagline">Beyond the worst moment — the quiet rebuilding no one applauded.</p>
+      </header>
+
+      <section aria-label="Poem text">
+        <p>
+I am not defined
+by the worst thing I did.
+I am not confined
+to the moment I lost control.
+I am not reduced
+to the story told without me.
+
+I am more than what broke me.
+I am the repair.
+I am the persistence.
+I am the quiet rebuilding
+no one applauded.
+
+I am the father
+who stayed.
+I am the man
+who learned.
+I am the soul
+who chose dignity
+over destruction.
+
+I am not perfect.
+But I am whole.
+And that wholeness
+is mine to keep.
+        </p>
+      </section>
+
+      {% include poem-actions.html %}
+    </article>
+  </main>
+
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "I Am More Than What Broke Me",
+    "description": "Beyond the worst moment — the quiet rebuilding no one applauded.",
+    "url": "{{ site.url }}/poems/i-am-more-than-what-broke-me.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
+  <script src="../theme.js"></script>
+  <script src="../static/js/popup.js"></script>
+  <script src="../static/js/poem.js"></script>
+</body>
+</html>

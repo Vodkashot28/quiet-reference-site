@@ -1,0 +1,81 @@
+---
+title: I Refuse Silence – Quiet Reference
+description: Breaking free from the silence that once felt like survival.
+og_type: article
+root: ../
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:999;transition:width 0.1s"></div>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">I Refuse Silence</li>
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <header>
+        <h1>I Refuse Silence</h1>
+        <p class="tagline">Breaking free from the silence that once felt like survival.</p>
+      </header>
+
+      <section aria-label="Poem text">
+        <p>
+Silence was once survival.
+It kept the peace,
+kept the roof steady,
+kept the children safe.
+
+But silence became
+a prison of my own making.
+It swallowed my voice,
+my truth,
+my name.
+
+I refuse silence now.
+I refuse the weight
+of words unsaid.
+I refuse the erasure
+of my story.
+
+My voice is not violence.
+My truth is not betrayal.
+My honesty is not cruelty.
+
+It is freedom.
+It is clarity.
+It is mine.
+        </p>
+      </section>
+
+      {% include poem-actions.html %}
+    </article>
+  </main>
+
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "I Refuse Silence",
+    "description": "Breaking free from the silence that once felt like survival.",
+    "url": "{{ site.url }}/poems/i-refuse-silence.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
+  <script src="../theme.js"></script>
+  <script src="../static/js/popup.js"></script>
+  <script src="../static/js/poem.js"></script>
+</body>
+</html>

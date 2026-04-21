@@ -1,0 +1,84 @@
+---
+title: I Carry My Own Light – Quiet Reference
+description: On not waiting for permission to heal, shine, or be whole.
+og_type: article
+root: ../
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:999;transition:width 0.1s"></div>
+  {% include nav.html %}
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../poems.html">Poems</a></li>
+      <li aria-current="page">I Carry My Own Light</li>
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <header>
+        <h1>I Carry My Own Light</h1>
+        <p class="tagline">On not waiting for permission to heal, shine, or be whole.</p>
+      </header>
+
+      <section aria-label="Poem text">
+        <p>
+I don't wait for forgiveness
+to shine.
+I don't wait for permission
+to heal.
+I don't wait for others
+to name my worth.
+
+I carry my own light.
+Even when shadows
+press against me.
+Even when doubt
+tries to dim me.
+
+This light is not borrowed.
+It is not conditional.
+It is not fragile.
+
+It is the fire
+of survival.
+The glow
+of resilience.
+The spark
+of truth.
+
+And I will not hide it.
+Not again.
+Not ever.
+        </p>
+      </section>
+
+      {% include poem-actions.html %}
+    </article>
+  </main>
+
+  {% include footer.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "I Carry My Own Light",
+    "description": "On not waiting for permission to heal, shine, or be whole.",
+    "url": "{{ site.url }}/poems/i-carry-my-own-light.html",
+    "author": { "@type": "Person", "name": "Quiet Reference" },
+    "isPartOf": { "@type": "WebSite", "name": "Quiet Reference", "url": "{{ site.url }}" }
+  }
+  </script>
+  <script src="../theme.js"></script>
+  <script src="../static/js/popup.js"></script>
+  <script src="../static/js/poem.js"></script>
+</body>
+</html>

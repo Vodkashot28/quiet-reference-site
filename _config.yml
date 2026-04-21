@@ -6,7 +6,7 @@ markdown: kramdown
 year: 2026
 
 # Provenance — injected by CI
-ipfs_cid: ""
+ipfs_cid: "bafybeif3a5pxws3fqt3fhsrhphw3kc4bueob33uik3dxnidsomhtnneusy"
 git_hash: ""
 
 # Discovery
@@ -26,4 +26,4 @@ exclude:
   - _styl
   - dnslink.sh
   - poem.js
-  - theme.js
+

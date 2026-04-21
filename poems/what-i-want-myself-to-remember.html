@@ -10,6 +10,7 @@ root: ../
   {% include head.html %}
 </head>
 <body>
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:999;transition:width 0.1s"></div>
   {% include nav.html %}
 
   <nav aria-label="Breadcrumb">
@@ -73,6 +74,8 @@ And that
 is a legacy worth keeping.
         </p>
       </section>
+
+      {% include poem-actions.html %}
     </article>
   </main>
 
@@ -90,5 +93,7 @@ is a legacy worth keeping.
   }
   </script>
   <script src="../theme.js"></script>
+  <script src="../static/js/popup.js"></script>
+  <script src="../static/js/poem.js"></script>
 </body>
 </html>
