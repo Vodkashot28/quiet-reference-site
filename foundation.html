@@ -1,36 +1,41 @@
 ---
 title: Foundations – Quiet Reference
 description: The architecture beneath the quiet. Built with intention, hosted for resilience, versioned for integrity.
+keywords: foundations, IPFS hosting, static site, Jekyll, quiet reference, decentralized, integrity
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>{% include head.html %}</head>
 <body>
   {% include nav.html %}
-  <header>
+  <header role="banner">
     <h1>Foundations</h1>
     <p class="tagline">The architecture beneath the quiet.</p>
   </header>
-  <main class="prose">
-    <p>This site is built with intention. Every file, every fragment, every silence is chosen. Hosted on IPFS for resilience. Versioned through Git for integrity. Styled with restraint to reflect the emotional tone of its contents.</p>
-    <p>Quiet Reference is not a blog. It is not a journal. It is a record. A modular archive of emotional and technical artifacts—preserved for clarity, not commentary.</p>
-    <p>The foundations of this space are emotional truth and reproducible infrastructure. It is built to endure, even when memory fades. It is built for my children, and for myself.</p>
+  <main id="main-content" role="main">
+    <section class="prose" aria-label="About the foundations">
+      <p>This site is built with intention. Every file, every fragment, every silence is chosen. Hosted on IPFS for resilience. Versioned through Git for integrity. Styled with restraint to reflect the emotional tone of its contents.</p>
+      <p>Quiet Reference is not a blog. It is not a journal. It is a record. A modular archive of emotional and technical artifacts—preserved for clarity, not commentary.</p>
+      <p>The foundations of this space are emotional truth and reproducible infrastructure. It is built to endure, even when memory fades. It is built for my children, and for myself.</p>
+    </section>
+    <hr class="divider" />
+    {% include provenance.html %}
+    <hr class="divider" />
+    <section aria-label="Technical foundations">
+      <article class="card">
+        <h2>Hosting</h2>
+        <p>Mirrored on IPFS for permanence beyond any single platform.</p>
+      </article>
+      <article class="card">
+        <h2>Version Control</h2>
+        <p>Every change is committed. Every word is traceable. Git is the memory this space deserves.</p>
+      </article>
+      <article class="card">
+        <h2>Design</h2>
+        <p>Plain HTML and CSS. No frameworks. No noise. The restraint is intentional.</p>
+      </article>
+    </section>
   </main>
-  <hr class="divider" />
-  <section>
-    <article class="card">
-      <h2>Hosting</h2>
-      <p>Mirrored on IPFS for permanence beyond any single platform.</p>
-    </article>
-    <article class="card">
-      <h2>Version Control</h2>
-      <p>Every change is committed. Every word is traceable. Git is the memory this space deserves.</p>
-    </article>
-    <article class="card">
-      <h2>Design</h2>
-      <p>Plain HTML and CSS. No frameworks. No noise. The restraint is intentional.</p>
-    </article>
-  </section>
   {% include footer.html %}
   <script src="theme.js"></script>
 </body>

@@ -5,6 +5,16 @@ baseurl: ""
 markdown: kramdown
 year: 2026
 
+# Social / SEO
+twitter_handle: ""
+og_image: "/assets/images/quiet_desk_and_book.png"
+repo_url: "https://github.com/Vodkashot28/quiet-reference-site"
+
+# Patronage
+kofi_url: "https://ko-fi.com/ayawkol"
+github_sponsors_url: "https://github.com/sponsors/ayawkol"
+gumroad_url: "https://ayawkol.gumroad.com"
+
 # Provenance — injected by CI
 ipfs_cid: "bafybeiemq7eidrbbmksy2owan23rwernkkjv6apvcjs6lbxlvalcrzsxea"
 git_hash: ""

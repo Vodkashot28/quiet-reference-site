@@ -1,7 +1,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="{{ page.description | default: site.description }}" />
-<meta name="keywords" content="poetry, fragments, letters, quiet reference, emotional clarity, truth" />
+<meta name="keywords" content="{{ page.keywords | default: 'poetry, fragments, letters, quiet reference, emotional clarity, truth, restraint, healing, boundaries, self-worth' }}" />
 <meta name="author" content="Quiet Reference" />
 
 <!-- Canonical -->
@@ -13,12 +13,7 @@
 <meta property="og:description" content="{{ page.description | default: site.description }}" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 <meta property="og:site_name" content="{{ site.title }}" />
-{% if page.image %}<meta property="og:image" content="{{ site.url }}{{ page.image }}" />{% endif %}
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="{{ page.title | default: site.title }}" />
-<meta name="twitter:description" content="{{ page.description | default: site.description }}" />
+<!-- og:image and twitter:card emitted by social-card.html -->
 
 <!-- Provenance -->
 {% if site.ipfs_cid %}<meta name="ipfs-cid" content="{{ site.ipfs_cid }}" />{% endif %}

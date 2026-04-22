@@ -1,11 +1,29 @@
 <footer>
   <p>&copy; {{ site.year | default: '2026' }} Quiet Reference. All rights reserved.</p>
-  {% if site.ipfs_cid %}<p class="provenance">Anchored at CID: <code>{{ site.ipfs_cid }}</code></p>{% endif %}
-  {% if site.git_hash %}<p class="provenance">Build: <code>{{ site.git_hash }}</code></p>{% endif %}
-  <p>
-    <a href="https://ko-fi.com/ayawkol" target="_blank" rel="noopener" aria-label="Support this work on Ko-fi">☕ Support this work on Ko-fi</a>
-    &nbsp;·&nbsp;
-    <a href="https://github.com/sponsors/ayawkol" target="_blank" rel="noopener" aria-label="Sponsor on GitHub">♥ GitHub Sponsors</a>
+  {% if site.ipfs_cid or site.git_hash %}
+  <p class="provenance" aria-label="Build provenance">
+    {% if site.ipfs_cid %}
+    <span>IPFS: <a href="https://storacha.link/ipfs/{{ site.ipfs_cid }}" target="_blank" rel="noopener"
+         data-tip="View this exact build on IPFS — content-addressed, immutable"
+         title="View this build on IPFS"><code>{{ site.ipfs_cid | truncate: 20, '…' }}</code></a></span>
+    {% endif %}
+    {% if site.ipfs_cid and site.git_hash %}&nbsp;·&nbsp;{% endif %}
+    {% if site.git_hash %}
+    <span>Git: <a href="{{ site.repo_url | default: 'https://github.com/Vodkashot28/quiet-reference-site' }}/commit/{{ site.git_hash }}" target="_blank" rel="noopener"
+         data-tip="View this commit on GitHub"
+         title="View this commit on GitHub"><code>{{ site.git_hash | truncate: 10, '' }}</code></a></span>
+    {% endif %}
   </p>
+  {% endif %}
+  <p class="support-links">
+    <a href="{{ page.root | default: '' }}editions.html" aria-label="Artifact editions and downloads">📄 Editions</a>
+    &nbsp;·&nbsp;
+    <a href="{{ site.kofi_url }}" target="_blank" rel="noopener" aria-label="Support on Ko-fi">☕ Ko-fi</a>
+    &nbsp;·&nbsp;
+    <a href="{{ site.github_sponsors_url }}" target="_blank" rel="noopener" aria-label="Sponsor on GitHub">♥ GitHub Sponsors</a>
+    &nbsp;·&nbsp;
+    <a href="{{ site.gumroad_url }}" target="_blank" rel="noopener" aria-label="Download artifacts on Gumroad">🛍 Gumroad</a>
+  </p>
+  <p class="support-note">No ads. No paywalls. Pay what feels right.</p>
 </footer>
 <script src="{{ page.root | default: '' }}static/js/stars.js"></script>

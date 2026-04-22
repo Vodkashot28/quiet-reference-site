@@ -1,5 +1,5 @@
 {% comment %}
-  Emits og:image + twitter:image pointing to the per-page SVG card.
+  Emits og:image + twitter:card tags pointing to the per-page SVG card.
   Falls back to the static og_image if no slug is available.
   Usage: {% include social-card.html %}
 {% endcomment %}
@@ -9,10 +9,13 @@
 {% elsif page.og_image %}
   {% assign card_url = site.url | append: page.og_image %}
 {% else %}
-  {% assign card_url = site.url | append: '/assets/images/quiet_desk_and_book.png' %}
+  {% assign card_url = site.url | append: site.og_image | default: '/assets/images/quiet_desk_and_book.png' %}
 {% endif %}
 <meta property="og:image" content="{{ card_url }}"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{{ page.title | default: site.title }}"/>
+<meta name="twitter:description" content="{{ page.description | default: site.description }}"/>
 <meta name="twitter:image" content="{{ card_url }}"/>
+{% if site.twitter_handle %}<meta name="twitter:site" content="@{{ site.twitter_handle }}"/>{% endif %}

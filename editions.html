@@ -1,0 +1,70 @@
+---
+title: Editions – Quiet Reference
+description: Downloadable artifacts from Quiet Reference — PDFs, provenance tokens, and archival editions. Pay what feels right.
+keywords: editions, downloadable poetry, PDF, provenance token, IPFS, quiet reference, artifact
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>{% include head.html %}</head>
+<body>
+  {% include nav.html %}
+  <header role="banner">
+    <h1>Editions</h1>
+    <p class="tagline">Artifacts you can hold. Provenance you can verify.</p>
+  </header>
+  <main id="main-content" role="main">
+
+    <section class="prose" aria-label="Editions philosophy">
+      <p>These are not products. They are artifacts — fixed points in time, content-addressed and signed. Each edition carries its IPFS CID so you can verify what you received is exactly what was made.</p>
+      <p>No ads. No paywalls. Pay what feels right, or take what you need.</p>
+    </section>
+
+    <hr class="divider" />
+
+    <section aria-label="Available editions">
+
+      <article class="edition-card">
+        <div class="edition-meta">
+          <span class="edition-type">PDF Collection</span>
+          <span class="edition-cid" data-tip="Content-addressed — this file cannot be altered without changing its address">CID: <code>{{ site.ipfs_cid | default: '—' }}</code></span>
+        </div>
+        <h2>Complete Poems — First Edition</h2>
+        <p>All fifteen poems in a single typeset PDF. Formatted for reading and printing. Includes the IPFS CID of this build on the colophon page.</p>
+        <div class="edition-actions">
+          <a class="action-btn" href="{{ site.gumroad_url }}" target="_blank" rel="noopener" aria-label="Download Complete Poems PDF on Gumroad">Download on Gumroad →</a>
+          {% if site.ipfs_cid %}
+          <a class="action-btn" href="https://storacha.link/ipfs/{{ site.ipfs_cid }}" target="_blank" rel="noopener" aria-label="Verify this edition on IPFS">Verify on IPFS →</a>
+          {% endif %}
+        </div>
+      </article>
+
+      <article class="edition-card">
+        <div class="edition-meta">
+          <span class="edition-type">Provenance Token</span>
+        </div>
+        <h2>Archival Receipt</h2>
+        <p>A plain-text provenance document containing the IPFS CID, Git commit hash, build date, and a SHA-256 checksum of the PDF. Machine-verifiable. Human-readable.</p>
+        <div class="edition-actions">
+          <a class="action-btn" href="{{ site.gumroad_url }}" target="_blank" rel="noopener" aria-label="Get archival receipt on Gumroad">Get on Gumroad →</a>
+        </div>
+      </article>
+
+      <article class="edition-card">
+        <div class="edition-meta">
+          <span class="edition-type">Patronage</span>
+        </div>
+        <h2>Support the Archive</h2>
+        <p>If this space has offered you something — clarity, recognition, rest — consider supporting its preservation. No tiers. No perks withheld. Just reciprocity.</p>
+        <div class="edition-actions">
+          <a class="action-btn" href="{{ site.kofi_url }}" target="_blank" rel="noopener" aria-label="Support on Ko-fi">☕ Ko-fi</a>
+          <a class="action-btn" href="{{ site.github_sponsors_url }}" target="_blank" rel="noopener" aria-label="Sponsor on GitHub">♥ GitHub Sponsors</a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+  {% include footer.html %}
+  <script src="theme.js"></script>
+</body>
+</html>

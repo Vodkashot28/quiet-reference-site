@@ -1,0 +1,22 @@
+<section id="provenance" aria-labelledby="provenance-heading">
+  <h2 id="provenance-heading">Provenance</h2>
+  <div class="prose">
+    <p>Every version of this site is content-addressed and pinned to IPFS. That means each build produces a unique, verifiable fingerprint — a CID — that cannot be altered without changing the address itself. Words here cannot be quietly revised and denied.</p>
+    <p>Git commits provide a second layer: a timestamped, cryptographically linked chain of every change. The history is public and immutable. What was written is what was written.</p>
+    <p>This is not paranoia. It is architecture. Truth deserves infrastructure.</p>
+  </div>
+  {% if site.ipfs_cid or site.git_hash %}
+  <dl class="provenance-meta" aria-label="Current build identifiers">
+    {% if site.ipfs_cid %}
+    <dt>IPFS CID</dt>
+    <dd><a href="https://storacha.link/ipfs/{{ site.ipfs_cid }}" target="_blank" rel="noopener"
+           data-tip="Content-addressed fingerprint — this exact build, verifiable forever"><code>{{ site.ipfs_cid }}</code></a></dd>
+    {% endif %}
+    {% if site.git_hash %}
+    <dt>Git commit</dt>
+    <dd><a href="{{ site.repo_url | default: 'https://github.com/Vodkashot28/quiet-reference-site' }}/commit/{{ site.git_hash }}" target="_blank" rel="noopener"
+           data-tip="Timestamped commit — every word change is traceable"><code>{{ site.git_hash }}</code></a></dd>
+    {% endif %}
+  </dl>
+  {% endif %}
+</section>

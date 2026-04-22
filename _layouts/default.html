@@ -7,7 +7,9 @@
 </head>
 <body>
   {% include nav.html %}
-  {{ content }}
+  <main id="main-content" role="main">
+    {{ content }}
+  </main>
   {% include footer.html %}
   {% if page.schema %}
   <script type="application/ld+json">{{ page.schema }}</script>

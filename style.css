@@ -268,3 +268,123 @@ body::before {
 .poem-card .title { font-size: 1.05rem; font-weight: bold; color: var(--link); display: block; margin-bottom: 0.5rem; }
 .poem-card .desc  { font-size: 0.92rem; color: var(--muted); font-style: italic; line-height: 1.5; }
 .poem-card .arrow { display: inline-block; margin-top: 0.9rem; font-size: 0.85rem; color: var(--accent); }
+
+/* ─── CSS Tooltips ─────────────────────────────────────────── */
+/* Usage: <element data-tip="tooltip text"> */
+[data-tip] {
+  position: relative;
+  cursor: default;
+}
+
+[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--text);
+  color: var(--bg);
+  font-family: Georgia, serif;
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.4;
+  white-space: nowrap;
+  padding: 0.35em 0.7em;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+  max-width: 260px;
+  white-space: normal;
+  text-align: center;
+}
+
+[data-tip]:hover::after,
+[data-tip]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Provenance code tooltips — left-aligned, monospace */
+.provenance [data-tip]::after,
+.provenance-meta [data-tip]::after {
+  font-family: monospace;
+  font-style: normal;
+  font-size: 0.72rem;
+  left: 0;
+  transform: translateX(0) translateY(4px);
+  white-space: nowrap;
+}
+
+.provenance [data-tip]:hover::after,
+.provenance-meta [data-tip]:hover::after {
+  transform: translateX(0) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tip]::after { transition: none; }
+}
+
+/* ─── Edition Cards ────────────────────────────────────────── */
+.edition-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.edition-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.edition-type {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: Georgia, serif;
+}
+
+.edition-cid {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: monospace;
+}
+
+.edition-card h2 {
+  font-size: 1.2rem;
+  color: var(--link);
+  margin-bottom: 0.5rem;
+}
+
+.edition-card p {
+  font-size: 0.97rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  max-width: 62ch;
+}
+
+.edition-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* ─── Footer support links ─────────────────────────────────── */
+.support-links { margin-top: 0.6rem; }
+.support-links a { color: var(--link); text-decoration: none; transition: color 0.2s; }
+.support-links a:hover { color: var(--accent); }
+
+.support-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.3rem;
+}
