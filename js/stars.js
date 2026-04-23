@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Three layers: [count, radius, alpha, scrollSpeed, mouseSpeed]
   const LAYERS = [
     { count: 80,  r: 0.6, a: 0.25, scroll: 0.1, mouse: 2  }, // far
-    { count: 50,  r: 1.1, a: 0.55, scroll: 0.3, mouse: 5  }, // mid
+    { count: 50,  r: 0.9, a: 0.55, scroll: 0.5, mouse: 5  }, // mid (0.5x scroll)
     { count: 25,  r: 1.8, a: 0.95, scroll: 1.0, mouse: 10 }, // near (foreground, 1:1 scroll)
   ];
 
