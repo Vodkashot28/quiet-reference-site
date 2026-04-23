@@ -3,15 +3,23 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>{{ site.url }}/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>{{ site.url }}/poems.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  {% for file in site.static_files %}{% if file.path contains '/poems/' and file.extname == '.html' %}
-  <url><loc>{{ site.url }}{{ file.path }}</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
-  {% endif %}{% endfor %}
-  <url><loc>{{ site.url }}/fragments.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>{{ site.url }}/letters-unsent.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>{{ site.url }}/about.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>{{ site.url }}/foundation.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>{{ site.url }}/manifest.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>{{ site.url }}/recovered.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  {% assign pages = site.html_pages | sort: "url" %}
+  {% for p in pages %}
+  {% unless p.url contains '/404' %}
+  <url>
+    <loc>{{ site.url }}{{ p.url }}</loc>
+    <changefreq>{% if p.url == '/' %}weekly{% elsif p.url contains '/poems/' %}yearly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if p.url == '/' %}1.0{% elsif p.url contains '/poems/' %}0.8{% else %}0.6{% endif %}</priority>
+  </url>
+  {% endunless %}
+  {% endfor %}
+  {% for file in site.static_files %}
+  {% if file.path contains '/poems/' and file.extname == '.html' %}
+  <url>
+    <loc>{{ site.url }}{{ file.path }}</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {% endif %}
+  {% endfor %}
 </urlset>

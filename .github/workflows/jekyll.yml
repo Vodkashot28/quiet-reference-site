@@ -26,17 +26,35 @@ jobs:
           GIT_HASH=$(git rev-parse --short HEAD)
           sed -i "s/^git_hash:.*/git_hash: \"$GIT_HASH\"/" _config.yml
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Build CSS
+        run: npm run build:css
+
+      - name: Build JS
+        run: npm run build:js
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
 
-      - name: Install dependencies
+      - name: Install Ruby dependencies
         run: bundle install
 
-      - name: Build site
+      - name: Build Jekyll site
         run: bundle exec jekyll build
+
+      - name: Generate social card PNGs
+        run: npm run build:cards
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

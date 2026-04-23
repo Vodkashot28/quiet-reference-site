@@ -34,6 +34,11 @@ exclude:
   - archive
   - js
   - _styl
+  - scripts
   - dnslink.sh
   - poem.js
+  - theme.js
+  - README.md
+  - CNAME
+  - static/css/main.css
 
