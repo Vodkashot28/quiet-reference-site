@@ -20,13 +20,11 @@ layout: null
     {% endfor %}
     {% for file in site.static_files %}
     {% if file.path contains '/poems/' and file.extname == '.html' %}
-    {% unless poems | map: "url" | contains: file.path %}
     <item>
       <title>{{ file.basename | replace: '-', ' ' }}</title>
       <link>{{ site.url }}{{ file.path }}</link>
       <guid isPermaLink="true">{{ site.url }}{{ file.path }}</guid>
     </item>
-    {% endunless %}
     {% endif %}
     {% endfor %}
   </channel>
