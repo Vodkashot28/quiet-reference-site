@@ -73,10 +73,42 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
+  function drawMesh(isDark) {
+    const w = canvas.width, h = canvas.height;
+    // Two diagonal linear gradients overlaid to create a colour-mesh feel
+    const g1 = ctx.createLinearGradient(0, 0, w, h);
+    const g2 = ctx.createLinearGradient(w, 0, 0, h);
+    if (isDark) {
+      g1.addColorStop(0,   "rgba(20,10,50,0.22)");
+      g1.addColorStop(1,   "rgba(10,30,60,0.12)");
+      g2.addColorStop(0,   "rgba(50,10,40,0.10)");
+      g2.addColorStop(1,   "rgba(10,40,50,0.08)");
+    } else {
+      g1.addColorStop(0,   "rgba(220,210,240,0.12)");
+      g1.addColorStop(1,   "rgba(210,230,245,0.06)");
+      g2.addColorStop(0,   "rgba(240,215,230,0.08)");
+      g2.addColorStop(1,   "rgba(215,235,240,0.05)");
+    }
+    ctx.fillStyle = g1; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = g2; ctx.fillRect(0, 0, w, h);
+  }
+
+  function drawVignette(isDark) {
+    const w = canvas.width, h = canvas.height;
+    const r = Math.sqrt(w * w + h * h) * 0.5;
+    const g = ctx.createRadialGradient(w/2, h/2, r * 0.35, w/2, h/2, r);
+    const edge = isDark ? "rgba(0,0,0,0.72)" : "rgba(200,195,215,0.45)";
+    g.addColorStop(0, "rgba(0,0,0,0)");
+    g.addColorStop(1, edge);
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
+  }
+
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const isDark    = document.documentElement.getAttribute("data-theme") === "dark";
     drawNebula(isDark, scrollY);
+    drawMesh(isDark);
     const color     = isDark ? "255,255,255" : "80,80,120";
     const alphaScale = isDark ? 1 : 0.4;
 
@@ -94,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.fill();
     });
 
+    drawVignette(isDark);
     requestAnimationFrame(draw);
   }
 
