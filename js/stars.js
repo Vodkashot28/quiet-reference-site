@@ -139,9 +139,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const py = reduced ? 0 : mouse.y * s.mouse + scrollY * s.scroll;
 
       ctx.beginPath();
-      ctx.arc(s.x + px + s.ox, s.y + py + s.oy, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${color},${s.a * alphaScale})`;
+      const proximity = (!reduced && dist < RADIUS) ? (1 - dist / RADIUS) : 0;
+      const glowR = s.r + proximity * 1.2;
+      const glowA = s.a + proximity * 0.4;
+      ctx.arc(s.x + px + s.ox, s.y + py + s.oy, glowR, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${color},${Math.min(glowA * alphaScale, 1)})`;
       ctx.fill();
+
+      // halo for very close stars
+      if (proximity > 0.5) {
+        ctx.beginPath();
+        ctx.arc(s.x + px + s.ox, s.y + py + s.oy, glowR * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color},${(proximity - 0.5) * 0.12})`;
+        ctx.fill();
+      }
     });
 
     drawVignette(isDark);
