@@ -37,7 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
         y:      Math.random() * canvas.height,
         r:      layer.r + Math.random() * 0.4,
         a:      layer.a,
-        speed:  Math.random() * 0.02 + 0.008,
+        aBase:  layer.a,
+        aAmp:   Math.random() * 0.25 + 0.08,   // twinkle depth
+        phase:  Math.random() * Math.PI * 2,    // offset so stars don't sync
+        freq:   Math.random() * 0.012 + 0.004,  // cycles per frame
         scroll: layer.scroll,
         mouse:  layer.mouse,
       }))
@@ -113,9 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const alphaScale = isDark ? 1 : 0.4;
 
     stars.forEach(s => {
-      // twinkle
-      s.a += (Math.random() - 0.5) * s.speed;
-      s.a = Math.max(0.05, Math.min(0.95, s.a));
+      // twinkle — smooth sine wave, unique phase + frequency per star
+      s.phase += s.freq;
+      s.a = s.aBase + Math.sin(s.phase) * s.aAmp;
 
       const ox = reduced ? 0 : mouse.x * s.mouse;
       const oy = reduced ? 0 : mouse.y * s.mouse + scrollY * s.scroll;

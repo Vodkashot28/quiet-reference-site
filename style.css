@@ -45,6 +45,19 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
+/* ─── Star twinkle (HTML elements, e.g. decorative ✦) ──────── */
+@keyframes twinkle {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.85); }
+}
+.star {
+  display: inline-block;
+  animation: twinkle var(--twinkle-dur, 3s) ease-in-out infinite;
+}
+.star:nth-child(2) { --twinkle-dur: 2.3s; animation-delay: -0.8s; }
+.star:nth-child(3) { --twinkle-dur: 4.1s; animation-delay: -1.6s; }
+@media (prefers-reduced-motion: reduce) { .star { animation: none; } }
+
 /* ─── Navigation ───────────────────────────────────────────── */
 nav {
   display: flex;
