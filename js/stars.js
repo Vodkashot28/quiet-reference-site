@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       Array.from({ length: layer.count }, () => ({
         x:      Math.random() * canvas.width,
         y:      Math.random() * canvas.height,
+        ox:     0, oy: 0,   // repulsion offset, springs back to 0
         r:      layer.r + Math.random() * 0.4,
         a:      layer.a,
         aBase:  layer.a,
@@ -120,11 +121,25 @@ document.addEventListener("DOMContentLoaded", () => {
       s.phase += s.freq;
       s.a = s.aBase + Math.sin(s.phase) * s.aAmp;
 
-      const ox = reduced ? 0 : mouse.x * s.mouse;
-      const oy = reduced ? 0 : mouse.y * s.mouse + scrollY * s.scroll;
+      // repulsion — push away from cursor, spring back
+      const RADIUS = 90, STRENGTH = 6, SPRING = 0.12, DAMP = 0.75;
+      const mx = (mouse.x * 0.5 + 0.5) * canvas.width;
+      const my = (mouse.y * 0.5 + 0.5) * canvas.height;
+      const dx = s.x - mx, dy = s.y - my;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (!reduced && dist < RADIUS && dist > 0) {
+        const force = (1 - dist / RADIUS) * STRENGTH;
+        s.ox += (dx / dist) * force;
+        s.oy += (dy / dist) * force;
+      }
+      s.ox = (s.ox * DAMP) + (-s.ox * SPRING);
+      s.oy = (s.oy * DAMP) + (-s.oy * SPRING);
+
+      const px = reduced ? 0 : mouse.x * s.mouse;
+      const py = reduced ? 0 : mouse.y * s.mouse + scrollY * s.scroll;
 
       ctx.beginPath();
-      ctx.arc(s.x + ox, s.y + oy, s.r, 0, Math.PI * 2);
+      ctx.arc(s.x + px + s.ox, s.y + py + s.oy, s.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${color},${s.a * alphaScale})`;
       ctx.fill();
     });
