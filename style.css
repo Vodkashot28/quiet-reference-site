@@ -50,13 +50,7 @@ body {
   0%, 100% { opacity: 1;    transform: scale(1); }
   50%       { opacity: 0.3; transform: scale(0.85); }
 }
-.star {
-  display: inline-block;
-  animation: twinkle var(--twinkle-dur, 3s) ease-in-out infinite;
-}
-.star:nth-child(2) { --twinkle-dur: 2.3s; animation-delay: -0.8s; }
-.star:nth-child(3) { --twinkle-dur: 4.1s; animation-delay: -1.6s; }
-@media (prefers-reduced-motion: reduce) { .star { animation: none; } }
+/* .star base + per-index delays compiled from less/stars.less */
 
 /* ─── Navigation ───────────────────────────────────────────── */
 nav {

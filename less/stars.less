@@ -1,0 +1,23 @@
+// Generates .star-N rules with staggered twinkle delays
+// Usage: .star-delays(20) → produces .star-1 … .star-20
+
+.star-delays(@n, @i: 1) when (@i =< @n) {
+  .star-@{i} {
+    --twinkle-dur:   unit(2 + (@i * 0.37), s);   // 2s … ~9.3s spread
+    animation-delay: unit(-1 * (@i * 0.53), s);  // negative = pre-started
+  }
+  .star-delays(@n, (@i + 1));
+}
+
+// Base rule (keep in sync with style.css .star block)
+.star {
+  display: inline-block;
+  animation: twinkle var(--twinkle-dur, 3s) ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star { animation: none; }
+}
+
+// Generate 20 uniquely-timed stars
+.star-delays(20);
