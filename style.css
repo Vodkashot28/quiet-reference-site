@@ -3,6 +3,10 @@
 
 :root {
   --bg:        #f8f6f2;
+  --bg-mesh:   radial-gradient(ellipse at 20% 30%, #ede8f5 0%, transparent 55%),
+               radial-gradient(ellipse at 80% 70%, #e8f0f5 0%, transparent 55%),
+               radial-gradient(ellipse at 55% 10%, #f5ece8 0%, transparent 45%),
+               #f8f6f2;
   --text:      #2e2e2e;
   --muted:     #666;
   --accent:    #a67c52;
@@ -14,6 +18,10 @@
 
 [data-theme="dark"] {
   --bg:        #1a1a1a;
+  --bg-mesh:   radial-gradient(ellipse at 20% 30%, #1e1228 0%, transparent 55%),
+               radial-gradient(ellipse at 80% 70%, #0e1e2e 0%, transparent 55%),
+               radial-gradient(ellipse at 55% 10%, #1e100e 0%, transparent 45%),
+               #1a1a1a;
   --text:      #e8e4de;
   --muted:     #999;
   --accent:    #c49a6c;
@@ -27,13 +35,14 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: Georgia, 'Times New Roman', serif;
-  background-color: var(--bg);
+  background: var(--bg-mesh);
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.8;
   padding: 2rem 1.5rem;
   max-width: 860px;
   margin: 0 auto;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* ─── Navigation ───────────────────────────────────────────── */
