@@ -6,13 +6,13 @@ markdown: kramdown
 year: 2026
 
 # Social / SEO
-twitter_handle: ""
+twitter_handle: jn_alair
 og_image: "/assets/images/quiet_desk_and_book.png"
 repo_url: "https://github.com/Vodkashot28/quiet-reference-site"
 
 # Patronage
 kofi_url: "https://ko-fi.com/ayawkol"
-github_sponsors_url: "https://github.com/sponsors/ayawkol"
+github_sponsors_url: "https://github.com/sponsors/Vodkashot28"
 gumroad_url: "https://ayawkol.gumroad.com"
 
 # Provenance — injected by CI
@@ -22,6 +22,12 @@ git_hash: "76e455a1"
 # Discovery
 sitemap_url: "/sitemap.xml"
 feed_url: "/feed.xml"
+
+# Plugins for SEO, sitemap, and feed generation
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
 
 exclude:
   - node_modules
@@ -41,4 +47,3 @@ exclude:
   - README.md
   - CNAME
   - static/css/main.css
-
