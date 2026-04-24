@@ -11,8 +11,7 @@ layout: default
   </ol>
 </nav>
 
-<main>
-  <article>
+<article>
     <header>
       <h1>{{ page.poem_title | default: page.title }}</h1>
       {% if page.description %}<p class="tagline">{{ page.description }}</p>{% endif %}
@@ -24,7 +23,4 @@ layout: default
 
     {% include poem-actions.html %}
   </article>
-</main>
-
-<script src="{{ page.root | default: '' }}static/js/popup.js"></script>
 <script src="{{ page.root | default: '' }}static/js/poem.js"></script>

@@ -3,6 +3,10 @@ const fs = require('fs');
 const path = require('path');
 
 const dir = '_site/assets/social';
+if (!fs.existsSync(dir)) {
+  console.log('No social card directory found, skipping.');
+  process.exit(0);
+}
 fs.readdirSync(dir).forEach(file => {
   if (file.endsWith('.svg')) {
     const input = path.join(dir, file);
