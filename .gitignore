@@ -17,3 +17,4 @@ go-ipfs/
 .DS_Store
 Thumbs.db
 .bundle/
+.bundle/
