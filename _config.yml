@@ -16,8 +16,8 @@ github_sponsors_url: "https://github.com/sponsors/ayawkol"
 gumroad_url: "https://ayawkol.gumroad.com"
 
 # Provenance — injected by CI
-ipfs_cid: "bafybeiatuu7nzlaomoq26bwqp2efvk3edtczbna3azotqbf3msganbaqaa"
-git_hash: ""
+ipfs_cid: "bafybeidcukoos3rdjkpgvx4e6gmc53yum6n7dbtzrplykw5utssgiuovbu"
+git_hash: "76e455a1"
 
 # Discovery
 sitemap_url: "/sitemap.xml"
