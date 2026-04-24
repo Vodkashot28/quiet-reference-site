@@ -11,6 +11,21 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}",
+    "publisher": { "@type": "Organization", "name": "{{ site.title }}" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ site.url }}/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   {% if page.schema %}
   <script type="application/ld+json">{{ page.schema }}</script>
   {% endif %}

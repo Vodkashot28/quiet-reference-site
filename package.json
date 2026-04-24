@@ -1,6 +1,6 @@
 {
   "name": "quietreference-site",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Static site built with Jekyll, deployed via IPFS, and styled with LESS/Stylus.",
   "license": "MIT",
   "type": "commonjs",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "npm run build:css && npm run build:js && npm run build:cards",
     "build:css": "lessc --clean-css --autoprefix style.less static/css/main.css",
-    "build:js": "mkdir -p static/js && browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js && browserify js/poem.js -o static/js/poem.js && browserify js/theme.js -o static/js/theme.js",
+    "build:js": "mkdir -p static/js && browserify js/popup.js -o static/js/popup.js && browserify js/stars.js -o static/js/stars.js && browserify js/poem.js -o static/js/poem.js && browserify js/theme.js -o static/js/theme.js && browserify js/cinema.js -o static/js/cinema.js && browserify js/card-export.js -o static/js/card-export.js",
     "build:jekyll": "bundle exec jekyll build",
     "build:cards": "node scripts/build-cards.js",
     "deploy": "npm run build && bundle exec jekyll build && ipfs add -r _site",
