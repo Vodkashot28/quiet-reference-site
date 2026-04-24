@@ -1,0 +1,47 @@
+name: Generate Video Artifact
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "Text prompt for video generation"
+        required: true
+        default: "A cosmic starfield with glowing nebulae"
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install diffusers transformers accelerate safetensors moviepy pillow
+
+      - name: Generate video
+        run: |
+          python scripts/text_to_video.py "${{ github.event.inputs.prompt }}"
+
+      - name: Compute provenance hashes
+        run: |
+          sha256sum assets/videos/manifesto_draft.mp4 > assets/videos/manifesto_draft.sha256
+
+      - name: Pin to IPFS (optional)
+        run: |
+          ipfs add assets/videos/manifesto_draft.mp4 || echo "IPFS not available in CI"
+
+      - name: Commit Jekyll stub
+        run: |
+          echo "---\nlayout: default\ntitle: \"Video Artifact\"\nvideo: \"/assets/videos/manifesto_draft.mp4\"\n---\n" > videos/manifesto.md
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add assets/videos/manifesto_draft.mp4 assets/videos/manifesto_draft.sha256 videos/manifesto.md
+          git commit -m "Add video artifact"
+          git push
