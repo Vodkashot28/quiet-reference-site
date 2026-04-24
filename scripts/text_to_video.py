@@ -28,7 +28,7 @@ pipe = DiffusionPipeline.from_pretrained(
 
 def generate_clip(text):
     output = pipe(prompt=text, num_frames=16)
-    return output.frames[0]
+    return output.frames
 
 
 clips = []

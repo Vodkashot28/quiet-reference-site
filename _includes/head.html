@@ -1,6 +1,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="{{ page.description | default: site.description }}" />
+{% if page.description %}
+<meta name="description" content="{{ page.description | escape }}" />
+{% else %}
+<meta name="description" content="{{ site.description | escape }}" />
+{% endif %}
 <meta name="keywords" content="{{ page.keywords | default: 'poetry, fragments, letters, quiet reference, emotional clarity, truth, restraint, healing, boundaries, self-worth' }}" />
 <meta name="author" content="Quiet Reference" />
 

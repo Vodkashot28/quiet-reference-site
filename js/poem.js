@@ -81,10 +81,11 @@
 
     const voice = pickVoice();
     let i = 0;
+    let cancelled = false;
 
     function speakLine () {
-      if (i >= lines.length) {
-        btn.textContent = '▶ Listen';
+      if (cancelled || i >= lines.length) {
+        if (!cancelled) btn.textContent = '▶ Listen';
         return;
       }
 
@@ -101,9 +102,7 @@
       const pauseMs     = isBlank ? 700 : isSentence ? 420 : 180;
 
       u.onend = function () {
-        if (!speechSynthesis.speaking) {
-          setTimeout(speakLine, pauseMs);
-        }
+        setTimeout(speakLine, pauseMs);
       };
 
       speechSynthesis.speak(u);
@@ -111,19 +110,26 @@
 
     speakLine();
     btn.textContent = '■ Stop';
+
+    return function cancel () { cancelled = true; };
   }
+
+  let cancelSpeech = null;
 
   btn.addEventListener('click', function () {
     if (speechSynthesis.speaking || speechSynthesis.pending) {
+      if (cancelSpeech) { cancelSpeech(); cancelSpeech = null; }
       speechSynthesis.cancel();
       btn.textContent = '▶ Listen';
       return;
     }
     // Voices may not be loaded yet on first interaction
     if (speechSynthesis.getVoices().length === 0) {
-      speechSynthesis.addEventListener('voiceschanged', speakPoem, { once: true });
+      speechSynthesis.addEventListener('voiceschanged', function () {
+        cancelSpeech = speakPoem();
+      }, { once: true });
     } else {
-      speakPoem();
+      cancelSpeech = speakPoem();
     }
   });
 })();
