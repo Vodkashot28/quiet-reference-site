@@ -12,7 +12,13 @@ description: The page you're looking for doesn't exist, but your search for clar
     <p class="tagline">This space doesn't exist yet. But your search for clarity is welcome here.</p>
   </header>
   <main style="text-align:center; margin-top:2rem;">
-    <a href="index.html" class="read-more">← Return home</a>
+    <p style="color:var(--muted); margin-bottom:1.5rem;">The page you're looking for has moved or never existed.</p>
+    <nav aria-label="Helpful links" style="display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center;">
+      <a href="index.html" class="action-btn">← Home</a>
+      <a href="poems.html" class="action-btn">Poems</a>
+      <a href="fragments.html" class="action-btn">Fragments</a>
+      <a href="letters-unsent.html" class="action-btn">Letters Unsent</a>
+    </nav>
   </main>
   {% include footer.html %}
   <script src="static/js/theme.js"></script>

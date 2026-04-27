@@ -537,3 +537,50 @@ body::before {
   transition: border-color .2s, color .2s;
 }
 #cinema-close:hover { border-color: var(--accent, #c49a6c); color: #fff; }
+
+/* ─── Poem navigation (prev/next) ──────────────────────────── */
+.poem-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.poem-nav a { color: var(--link); text-decoration: none; max-width: 45%; }
+.poem-nav a:hover { color: var(--accent); }
+.poem-nav-next { text-align: right; margin-left: auto; }
+
+/* ─── Reading time ──────────────────────────────────────────── */
+.reading-time {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-top: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ─── Print stylesheet ──────────────────────────────────────── */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+    line-height: 1.7;
+    max-width: 100%;
+    padding: 0;
+  }
+  nav, footer, .poem-actions, #reader-features, #progress-bar,
+  .poem-nav, .reading-time, #cinema-overlay { display: none !important; }
+  article {
+    background: none;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 0;
+  }
+  article h1 { font-size: 18pt; margin-bottom: 0.5rem; }
+  a[href]::after { content: none; }
+  .tagline { font-style: italic; color: #555; }
+}

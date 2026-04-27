@@ -7,5 +7,18 @@
   <a href="{{ page.root | default: '' }}foundation.html">Foundations</a>
   <a href="{{ page.root | default: '' }}manifest.html">Manifest</a>
   <a href="{{ page.root | default: '' }}editions.html">Editions</a>
+  <a href="{{ page.root | default: '' }}bookmarks.html" aria-label="Saved poems">♥ Saved</a>
+  <button id="btn-random-poem" aria-label="Read a random poem">⚄ Random</button>
   <button id="theme-toggle" aria-label="Toggle dark mode">☾</button>
 </nav>
+<script>
+(function () {
+  var btn = document.getElementById('btn-random-poem');
+  if (!btn) return;
+  var POEMS = ['i-dont-owe-your-trust','i-forgive-me','im-not-the-villain-you-needed-me-to-be','not-to-win-but-to-witness','what-i-want-myself-to-remember','what-i-want-you-to-know','what-ill-never-carry-again','i-choose-my-own-ending','i-refuse-silence','i-carry-my-own-light','i-am-more-than-what-broke-me','i-refuse-to-disappear','i-am-not-your-story','i-hold-my-own-name','i-am-the-quiet-rebuild'];
+  btn.addEventListener('click', function () {
+    var slug = POEMS[Math.floor(Math.random() * POEMS.length)];
+    window.location.href = '/poems/' + slug + '.html';
+  });
+})();
+</script>

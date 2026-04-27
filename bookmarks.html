@@ -1,0 +1,79 @@
+---
+title: Saved Poems – Quiet Reference
+description: Your saved poems from Quiet Reference.
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>{% include head.html %}</head>
+<body>
+  {% include nav.html %}
+  <header role="banner">
+    <h1>Saved Poems</h1>
+    <p class="tagline">Poems you've kept close.</p>
+  </header>
+  <main id="main-content" role="main">
+    <section aria-label="Saved poems">
+      <ul class="poem-grid" id="bookmarks-list" role="list">
+        <li id="empty-state" style="list-style:none; color:var(--muted); font-style:italic; padding:1rem 0;">
+          You haven't saved any poems yet. Visit a poem and click <strong>Add to Favorites</strong>.
+        </li>
+      </ul>
+      <div id="clear-wrap" style="display:none; margin-top:1.5rem;">
+        <button id="btn-clear-all" class="action-btn" style="background:none; border:1px solid var(--border); color:var(--muted); cursor:pointer; padding:0.4rem 1rem; border-radius:4px;">Clear all saved poems</button>
+      </div>
+    </section>
+  </main>
+  {% include footer.html %}
+  <script src="static/js/theme.js"></script>
+  <script>
+  (function () {
+    var STORAGE_KEY = 'qr_bookmarks';
+    var list = document.getElementById('bookmarks-list');
+    var empty = document.getElementById('empty-state');
+    var clearWrap = document.getElementById('clear-wrap');
+    var clearBtn = document.getElementById('btn-clear-all');
+
+    function getBookmarks() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch (e) { return []; }
+    }
+
+    function render() {
+      var bookmarks = getBookmarks();
+      // Remove all items except empty state
+      Array.from(list.children).forEach(function (el) {
+        if (el.id !== 'empty-state') el.remove();
+      });
+
+      if (!bookmarks.length) {
+        empty.style.display = '';
+        clearWrap.style.display = 'none';
+        return;
+      }
+
+      empty.style.display = 'none';
+      clearWrap.style.display = '';
+
+      bookmarks.forEach(function (b) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.className = 'poem-card';
+        a.href = b.url;
+        a.innerHTML = '<span class="title">' + b.title + '</span><span class="arrow" aria-hidden="true">Read →</span>';
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }
+
+    clearBtn.addEventListener('click', function () {
+      if (confirm('Remove all saved poems?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        render();
+      }
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>
