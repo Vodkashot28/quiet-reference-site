@@ -23,11 +23,10 @@ git_hash: "76e455a1"
 sitemap_url: "/sitemap.xml"
 feed_url: "/feed.xml"
 
-# Plugins for SEO, sitemap, and feed generation
+# Plugins for sitemap and feed generation
 plugins:
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-seo-tag
 
 exclude:
   - node_modules

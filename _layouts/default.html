@@ -15,15 +15,10 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "{{ site.title }}",
+    "name": "{{ site.title | escape }}",
     "url": "{{ site.url }}",
-    "description": "{{ site.description }}",
-    "publisher": { "@type": "Organization", "name": "{{ site.title }}" },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "{{ site.url }}/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "description": "{{ site.description | escape }}",
+    "publisher": { "@type": "Person", "name": "{{ site.title | escape }}" }
   }
   </script>
   {% if page.schema %}

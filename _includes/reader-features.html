@@ -1,0 +1,36 @@
+<!-- Reader Features Module -->
+<section id="reader-features" class="reader-engagement" aria-label="Reader engagement options">
+
+  <!-- Favorites/Bookmark Feature -->
+  <div class="feature-group">
+    <button id="btn-bookmark" class="action-btn bookmark-btn" aria-label="Add to favorites" title="Save this poem to your collection">
+      <span class="bookmark-icon">♡</span>
+      <span class="bookmark-text">Add to Favorites</span>
+    </button>
+    <span class="bookmark-count" id="bookmark-count" style="display:none; margin-left:0.5rem;"></span>
+  </div>
+
+  <!-- Newsletter CTA -->
+  <div class="feature-group newsletter-cta">
+    <p class="small-text">Never miss a new poem</p>
+    <form id="newsletter-form" class="newsletter-inline" aria-label="Subscribe to newsletter">
+      <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+      <button type="submit" class="cta-btn">Subscribe</button>
+    </form>
+    <p class="consent-text" style="font-size: 0.75rem; margin-top: 0.5rem;">
+      We respect your privacy. One email per month.
+    </p>
+  </div>
+
+  <!-- Monetization CTA -->
+  <div class="feature-group support-cta">
+    <p class="small-text">This work is free. Support it:</p>
+    <div class="support-buttons">
+      <a href="{{ site.kofi_url }}" target="_blank" rel="noopener" class="support-btn kofi" aria-label="Support on Ko-fi">☕ Ko-fi</a>
+      <a href="{{ site.github_sponsors_url }}" target="_blank" rel="noopener" class="support-btn github" aria-label="GitHub Sponsors">★ Sponsor</a>
+    </div>
+  </div>
+
+</section>
+
+<script src="{{ page.root | default: '' }}static/js/reader-features.js"></script>
